@@ -152,7 +152,7 @@ export default function Portfolio() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 italic">
             <div className="bento-card p-10 md:col-span-2 border-emerald-500/20 bg-emerald-500/5">
-              <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-emerald-900 text-emerald-400">BAC PRO SN RIS</h3>
+              <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-emerald-900 text-emerald-400">BAC PRO SN RISC</h3>
               <p className="text-zinc-400 leading-relaxed mb-8 font-light italic">
                 Mention Assez Bien • Systèmes Numériques, Option RISC (Réseaux Informatiques et Systèmes Communicants).
               </p>
