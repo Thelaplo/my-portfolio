@@ -24,7 +24,7 @@ export default function Portfolio() {
         { code: "B2.1", nom: "Concevoir une solution applicative" }
       ],
       github: "#",
-      images: ["/images/sportsio.png"]
+      images: ["/images/sportsio.jpeg"]
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ export default function Portfolio() {
         { code: "B2.3", nom: "Gérer des données" }
       ],
       github: "#",
-      images: ["/images/jeux.png"]
+      images: ["/images/jeux.jpeg"]
     },
     {
       id: 3,
@@ -52,7 +52,7 @@ export default function Portfolio() {
         { code: "B3.2", nom: "Mettre en place une veille technologique" }
       ],
       github: "#",
-      images: ["/images/canard.png"]
+      images: ["/images/canard.jpeg"]
     },
     {
       id: 4,
@@ -154,7 +154,7 @@ export default function Portfolio() {
             <div className="bento-card p-10 md:col-span-2 border-emerald-500/20 bg-emerald-500/5">
               <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-emerald-900 text-emerald-400">BAC PRO SN RIS</h3>
               <p className="text-zinc-400 leading-relaxed mb-8 font-light italic">
-                Mention Assez Bien • Systèmes Numériques, Option RIS (Réseaux Informatiques et Systèmes Communicants).
+                Mention Assez Bien • Systèmes Numériques, Option RISC (Réseaux Informatiques et Systèmes Communicants).
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-sans">
                 <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Installation de systèmes</div>
