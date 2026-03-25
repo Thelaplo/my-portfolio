@@ -113,8 +113,8 @@ export default function Portfolio() {
                </div>
              </div>
              <div>
-               <h2 className="text-2xl font-bold tracking-tighter uppercase italic">Stage & Alternance</h2>
-               <p className="text-zinc-500 text-xs mt-2 italic font-sans italic">Recherche du 23 fév. au 5 avril.</p>
+               <h2 className="text-2xl font-bold tracking-tighter uppercase italic">Alternance</h2>
+               <p className="text-zinc-500 text-xs mt-2 italic font-sans italic">Recherche d'une alternance pour la rentrée 2026.</p>
              </div>
           </motion.div>
         </section>
