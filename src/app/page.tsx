@@ -13,26 +13,30 @@ export default function Portfolio() {
   const projects = [
     {
       id: 1,
-      title: "SPORT'SIO",
-      tech: "C# • WINFORMS • MYSQL",
-      objectifs: "Conception et réalisation d'une application de gestion pour centraliser les informations des sportifs et gérer les disciplines.",
-      realisation: "- Analyse du besoin et modélisation\n- Développement de l'interface CRUD\n- Connexion à la base de données MySQL",
-      bilan: "Maîtrise du développement desktop et de la gestion de données SQL.",
+      title: "ADCPG 03",
+      tech: "PHP • MYSQL • BOOTSTRAP",
+      contexte: "Stage de 1ère année de BTS SIO : Création du site web officiel pour l'Association Départementale des Chasseurs de Grands Gibiers de l'Allier.",
+      objectifs: "Développer une plateforme vitrine permettant de présenter l'association, de diffuser les actualités et de centraliser les documents pour les adhérents.",
+      realisation: "- Analyse du cahier des charges de l'association\n- Création de la base de données MySQL\n- Développement du backend en PHP (gestion des news)\n- Mise en place d'un design responsive avec Bootstrap",
+      difficultes: "Adapter l'interface pour qu'elle soit intuitive pour des utilisateurs pas toujours familiers avec l'outil informatique.",
+      bilan: "Première expérience en situation réelle avec un client. Apprentissage de la gestion des délais et du déploiement web.",
       competences: [
-        { code: "B1.1", nom: "Gérer le patrimoine informatique" },
+        { code: "B1.3", nom: "Développer la présence en ligne" },
         { code: "B1.4", nom: "Travailler en mode projet" },
         { code: "B2.1", nom: "Concevoir une solution applicative" }
       ],
       github: "#",
-      images: ["/images/sportsio.jpeg"]
+      images: ["/images/logo.pdf"] 
     },
     {
       id: 2,
       title: "MAINTENANCE JEUX",
       tech: "C# • ALGORITHME",
-      objectifs: "Maintenance corrective et évolutive d'applications de jeux classiques (Pendu, Mastermind).",
-      realisation: "- Debugging complet du code source tiers\n- Amélioration des algorithmes de calcul\n- Documentation technique",
-      bilan: "Capacité accrue à lire et optimiser du code existant.",
+      contexte: "Optimisation d'un parc applicatif existant (Jeux de logique : Mastermind, Pendu).",
+      objectifs: "Maintenance corrective (bugs) et évolutive (nouvelles règles) sur du code source tiers.",
+      realisation: "- Analyse de code existant et debugging\n- Optimisation des algorithmes de jeu\n- Mise à jour de la documentation technique",
+      difficultes: "S'approprier une logique de programmation complexe écrite par un autre développeur.",
+      bilan: "Gain significatif en rigueur algorithmique et en capacité d'analyse de code.",
       competences: [
         { code: "B2.2", nom: "Assurer la maintenance d'une solution" },
         { code: "B2.3", nom: "Gérer des données" }
@@ -44,9 +48,11 @@ export default function Portfolio() {
       id: 3,
       title: "CANARD CONNECTÉ",
       tech: "VEILLE TECHNOLOGIQUE",
-      objectifs: "Mise en place d'une veille informationnelle active sur les innovations numériques.",
-      realisation: "- Utilisation d'outils de curation\n- Rédaction de synthèses hebdomadaires\n- Analyse de cybersécurité",
-      bilan: "Développement d'une culture tech et capacité de synthèse critique.",
+      contexte: "Veille stratégique sur les enjeux de l'IoT et de la cybersécurité moderne.",
+      objectifs: "Anticiper les évolutions du marché numérique et les menaces liées aux objets connectés.",
+      realisation: "- Mise en place d'une curation automatique (Feedly/Flux RSS)\n- Analyse critique et rédaction de synthèses hebdomadaires\n- Étude de cas sur la sécurité des protocoles sans fil",
+      difficultes: "Filtrer l'infobésité pour garantir la pertinence et la fiabilité des sources.",
+      bilan: "Développement d'une culture tech solide et capacité de veille active autonome.",
       competences: [
         { code: "B3.1", nom: "Organiser son développement professionnel" },
         { code: "B3.2", nom: "Mettre en place une veille technologique" }
@@ -58,9 +64,11 @@ export default function Portfolio() {
       id: 4,
       title: "BLOOM-SPIRIT",
       tech: "PHP • WEB • VOYAGE",
-      objectifs: "Création d'une plateforme web d'excursions touristiques au Japon.",
-      realisation: "- Maquettage UI/UX\n- Catalogue d'excursions dynamique\n- Gestion des tarifs et catégories",
-      bilan: "Focus sur l'expérience utilisateur et l'architecture web.",
+      contexte: "Création d'une plateforme d'excursions au Japon pour une agence de tourisme.",
+      objectifs: "Développer un catalogue dynamique avec filtres multicritères (tarifs, régions, catégories).",
+      realisation: "- Architecture MVC en PHP natif\n- Gestion de base de données relationnelle MySQL\n- Intégration d'un design responsive moderne",
+      difficultes: "Optimisation de l'affichage dynamique des données sans perte de performance.",
+      bilan: "Consolidation des bases backend PHP et focus sur l'ergonomie utilisateur (UX).",
       competences: [
         { code: "B1.3", nom: "Développement de la présence en ligne" },
         { code: "B2.1", nom: "Conception d'une solution applicative" }
@@ -85,6 +93,7 @@ export default function Portfolio() {
 
       <div className="max-w-7xl mx-auto">
         
+        {/* HERO */}
         <section id="accueil" className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bento-card p-10 col-span-1 md:col-span-2">
             <span className="text-blue-500 font-mono text-xs uppercase tracking-widest font-bold">Étudiant Développeur</span>
@@ -114,11 +123,12 @@ export default function Portfolio() {
              </div>
              <div>
                <h2 className="text-2xl font-bold tracking-tighter uppercase italic">Alternance</h2>
-               <p className="text-zinc-500 text-xs mt-2 italic font-sans italic">Recherche d'une alternance pour la rentrée 2026.</p>
+               <p className="text-zinc-500 text-xs mt-2 italic font-sans italic">Recherche d'une alternance pour 2026.</p>
              </div>
           </motion.div>
         </section>
 
+        {/* FORMATION */}
         <section id="formation" className="mb-24 space-y-6">
           <div className="flex items-center gap-3 mb-12">
             <div className="bg-zinc-800 p-2 rounded-lg text-white"><GraduationCap size={24} /></div>
@@ -130,7 +140,6 @@ export default function Portfolio() {
               <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-zinc-800 text-blue-400">BTS SIO • Option SLAM</h3>
               <p className="text-zinc-400 leading-relaxed mb-8 italic text-balance">
                 Services Informatiques aux Organisations. Spécialisation Solutions Logicielles et Applications Métiers.
-                J'y apprends à structurer des projets complexes et à développer des solutions pérennes.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans italic">
                 <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> Développement Web</div>
@@ -150,11 +159,12 @@ export default function Portfolio() {
             </div>
           </div>
 
+          {/* BAC PRO RISC - BIEN CONSERVÉ ICI */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 italic">
             <div className="bento-card p-10 md:col-span-2 border-emerald-500/20 bg-emerald-500/5">
               <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-emerald-900 text-emerald-400">BAC PRO SN RISC</h3>
               <p className="text-zinc-400 leading-relaxed mb-8 font-light italic">
-                Mention Assez Bien • Systèmes Numériques, Option RISC (Réseaux Informatiques et Systèmes Communicants).
+                Mention Assez Bien • Systèmes Numériques, Option RISC.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-sans">
                 <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Installation de systèmes</div>
@@ -163,7 +173,6 @@ export default function Portfolio() {
                 <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Configuration CISCO</div>
               </div>
             </div>
-
             <div className="bento-card p-8 bg-zinc-900/40 border border-zinc-800">
               <h4 className="text-sm font-mono text-emerald-500 uppercase mb-6 font-bold">Expertise BAC</h4>
               <div className="space-y-6 text-sm">
@@ -175,53 +184,7 @@ export default function Portfolio() {
           </div>
         </section>
 
-        <section id="experiences" className="mb-24 space-y-6">
-          <div className="flex items-center gap-3 mb-12">
-            <div className="bg-zinc-800 p-2 rounded-lg text-white"><Briefcase size={24} /></div>
-            <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">Expériences</h2>
-          </div>
-
-          <div className="space-y-6 italic font-sans">
-            <div className="bento-card p-8 border border-zinc-800 bg-zinc-900/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 group hover:border-blue-500/30 transition-all font-medium">
-              <div>
-                <span className="text-blue-500 font-mono text-xs font-bold uppercase tracking-widest italic">Mai 2025 - Juin 2025</span>
-                <h3 className="text-2xl font-bold uppercase mt-1">Stage Développement Web</h3>
-                <p className="text-zinc-500 text-sm italic">Tyche informatique • Clermont-Ferrand</p>
-              </div>
-              <div className="text-zinc-400 text-sm font-light max-w-md italic">
-                • Création d'une application agenda en C# <br/>
-                • Conception du site Occas'auto avec intégration de base de données
-              </div>
-            </div>
-
-            <div className="bento-card p-8 border border-zinc-800 bg-zinc-900/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 group hover:border-zinc-500/30 transition-all font-medium">
-              <div>
-                <span className="text-zinc-500 font-mono text-xs font-bold uppercase tracking-widest italic">Déc 2023 - Janv 2024</span>
-                <h3 className="text-2xl font-bold uppercase mt-1">Stage Réparation Multimédia</h3>
-                <p className="text-zinc-500 text-sm italic">Easycash • Clermont-Ferrand</p>
-              </div>
-              <div className="text-zinc-400 text-sm font-light max-w-md italic">
-                • Gestion des commandes via l'intranet <br/>
-                • Création d'étiquettes produits et conseil client <br/>
-                • Réparation de téléphones et d'ordinateurs
-              </div>
-            </div>
-
-            <div className="bento-card p-8 border border-zinc-800 bg-zinc-900/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 group hover:border-emerald-500/30 transition-all font-medium">
-              <div>
-                <span className="text-emerald-500 font-mono text-xs font-bold uppercase tracking-widest italic">Juin 2023 - Juil 2023</span>
-                <h3 className="text-2xl font-bold uppercase mt-1">Stage Réseaux et Systèmes</h3>
-                <p className="text-zinc-500 text-sm italic">28e Régiment de Transmissions • Issoire</p>
-              </div>
-              <div className="text-zinc-400 text-sm font-light max-w-md italic">
-                • Pratique des systèmes Windows Server <br/>
-                • Mise en œuvre avancée de Packet Tracer <br/>
-                • Participation aux activités militaires
-              </div>
-            </div>
-          </div>
-        </section>
-
+        {/* SERVICES */}
         <section id="services" className="mb-24">
           <div className="flex items-center gap-3 mb-12">
             <div className="bg-blue-600 p-2 rounded-lg text-white"><Layout size={24} /></div>
@@ -232,7 +195,7 @@ export default function Portfolio() {
               <div className="flex-1">
                 <span className="text-blue-500 text-xs font-mono font-bold tracking-widest uppercase italic font-sans">01</span>
                 <h3 className="text-4xl font-bold tracking-tighter mt-2 mb-4 group-hover:text-blue-500 transition-colors uppercase italic font-sans">Développement Web</h3>
-                <p className="text-zinc-500 text-sm italic font-light font-sans">Applications web robustes, rapides et optimisées SEO.</p>
+                <p className="text-zinc-500 text-sm italic font-light font-sans">Applications web robustes et optimisées SEO.</p>
               </div>
               <div className="w-32 h-32 bg-zinc-800 rounded-3xl border border-zinc-700 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-400 transition-all duration-500">
                 <Code2 size={40} className="text-zinc-600 group-hover:text-white transition-colors" />
@@ -242,7 +205,7 @@ export default function Portfolio() {
               <div className="flex-1">
                 <span className="text-blue-500 text-xs font-mono font-bold tracking-widest uppercase italic font-sans">02</span>
                 <h3 className="text-4xl font-bold tracking-tighter mt-2 mb-4 group-hover:text-blue-500 transition-colors uppercase italic font-sans">Design UI/UX</h3>
-                <p className="text-zinc-500 text-sm italic font-light font-sans">Interfaces minimalistes centrées sur l'utilisateur.</p>
+                <p className="text-zinc-500 text-sm italic font-light font-sans">Interfaces minimalistes et centrées utilisateur.</p>
               </div>
               <div className="w-32 h-32 bg-zinc-800 rounded-3xl border border-zinc-700 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-400 transition-all duration-500">
                 <Smartphone size={40} className="text-zinc-600 group-hover:text-white transition-colors" />
@@ -251,7 +214,7 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* --- SECTION PROJETS AVEC CARTES PLUS HAUTES --- */}
+        {/* PROJETS */}
         <section id="projets" className="mb-24">
           <div className="flex justify-between items-center mb-12">
             <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">Projets Sélectionnés</h2>
@@ -265,26 +228,19 @@ export default function Portfolio() {
                 onClick={() => setSelectedProject(p)} 
                 className="bento-card p-4 h-[450px] flex flex-col justify-between cursor-pointer group" 
               >
-                {/* On augmente la hauteur ici : h-80 au lieu de h-40 */}
                 <div className="w-full h-80 bg-zinc-800 rounded-[1.5rem] border border-zinc-700 overflow-hidden relative">
                   {p.images && p.images[0] && (
                     <img 
                       src={p.images[0]} 
                       alt={p.title} 
                       className="w-full h-full object-cover transition-opacity duration-500 opacity-80 group-hover:opacity-100"
-                      style={{ 
-                        imageRendering: '-webkit-optimize-contrast',
-                        objectPosition: 'center' // Centre l'image pour bien voir le canard
-                      }}
+                      style={{ imageRendering: '-webkit-optimize-contrast', objectPosition: 'center' }}
                     />
                   )}
-                  
                   <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <ArrowUpRight size={32} />
                   </div>
                 </div>
-
-                {/* Infos du projet calées en bas */}
                 <div className="mt-4">
                   <h4 className="font-bold tracking-tight italic uppercase">Projet #{p.id} : {p.title}</h4>
                   <p className="text-[10px] text-zinc-600 uppercase tracking-widest mt-1 font-bold">{p.tech}</p>
@@ -293,72 +249,85 @@ export default function Portfolio() {
             ))}
           </div>
         </section>
+
+        {/* MODALE EXAMEN */}
         <AnimatePresence>
           {selectedProject && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/95 backdrop-blur-md" onClick={() => setSelectedProject(null)}>
-              <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} className="bento-card max-w-2xl w-full p-8 bg-zinc-950 border border-zinc-800 relative overflow-y-auto max-h-[90vh]" onClick={e => e.stopPropagation()}>
+              <motion.div initial={{ scale: 0.9 }} animate={{ scale: 1 }} className="bento-card max-w-4xl w-full p-8 bg-zinc-950 border border-zinc-800 relative overflow-y-auto max-h-[90vh]" onClick={e => e.stopPropagation()}>
                 <button onClick={() => setSelectedProject(null)} className="absolute top-4 right-4 text-zinc-500 hover:text-white transition-colors">
                   <X size={24}/>
                 </button>
-                <h3 className="text-3xl font-bold mb-10 italic tracking-tighter underline underline-offset-[12px] decoration-zinc-800 uppercase">{selectedProject.title}</h3>
-                <div className="space-y-8 font-sans italic">
-                  <div>
-                    <h4 className="text-blue-500 font-bold uppercase text-[10px] tracking-widest mb-2 font-bold">Objectifs</h4>
-                    <p className="text-zinc-400 text-sm leading-relaxed">{selectedProject.objectifs}</p>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                  <div className="space-y-6">
+                    <div className="rounded-2xl border border-zinc-800 overflow-hidden h-64 shadow-2xl">
+                       <img src={selectedProject.images[0]} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="bg-blue-500/5 border border-blue-500/20 p-6 rounded-2xl italic">
+                       <h4 className="text-blue-500 font-bold uppercase text-[10px] tracking-widest mb-2 font-bold italic">Bilan Projet</h4>
+                       <p className="text-zinc-300 text-sm leading-relaxed">{selectedProject.bilan}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-blue-500 font-bold uppercase text-[10px] tracking-widest mb-2 font-bold">Réalisation</h4>
-                    <p className="text-zinc-400 text-sm whitespace-pre-line leading-relaxed">{selectedProject.realisation}</p>
-                  </div>
-                  <div>
-                    <h4 className="text-blue-500 font-bold uppercase text-[10px] tracking-widest mb-4 font-bold">Compétences SIO</h4>
-                    <div className="flex flex-col gap-3">
+
+                  <div className="space-y-6 font-sans italic">
+                    <h3 className="text-4xl font-bold italic tracking-tighter underline underline-offset-[12px] decoration-zinc-800 uppercase mb-4">{selectedProject.title}</h3>
+                    
+                    <div>
+                      <h4 className="text-blue-500 font-bold uppercase text-[10px] tracking-widest mb-2 font-bold underline decoration-blue-500/30 underline-offset-4">Contexte</h4>
+                      <p className="text-zinc-400 text-sm leading-relaxed">{selectedProject.contexte}</p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-blue-500 font-bold uppercase text-[10px] tracking-widest mb-2 font-bold underline decoration-blue-500/30 underline-offset-4">Objectifs</h4>
+                      <p className="text-zinc-400 text-sm leading-relaxed">{selectedProject.objectifs}</p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-blue-500 font-bold uppercase text-[10px] tracking-widest mb-2 font-bold underline decoration-blue-500/30 underline-offset-4">Points de Réalisation</h4>
+                      <p className="text-zinc-400 text-sm whitespace-pre-line leading-relaxed">{selectedProject.realisation}</p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-red-500/80 font-bold uppercase text-[10px] tracking-widest mb-2 font-bold underline decoration-red-500/20 underline-offset-4">Difficultés</h4>
+                      <p className="text-zinc-400 text-sm leading-relaxed">{selectedProject.difficultes}</p>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
                        {selectedProject.competences.map((c: any) => (
                          <div key={c.code} className="flex items-start gap-3">
                             <span className="text-blue-400 font-mono font-bold text-xs bg-blue-500/10 px-2 py-1 rounded border border-blue-500/20">{c.code}</span>
-                            <span className="text-zinc-400 text-xs mt-1 italic font-medium">{c.nom}</span>
+                            <span className="text-zinc-400 text-xs mt-1 italic">{c.nom}</span>
                          </div>
                        ))}
                     </div>
                   </div>
-                  <div className="pt-8 border-t border-zinc-900 flex justify-between items-center">
-                    <p className="text-zinc-500 text-xs italic font-medium">{selectedProject.bilan}</p>
-                    <a href={selectedProject.github} target="_blank" className="flex items-center gap-2 text-white bg-zinc-900 px-5 py-2 rounded-xl text-xs hover:bg-zinc-800 transition-all uppercase font-bold border border-zinc-800">
-                      <Github size={14}/> Code Source
-                    </a>
-                  </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-zinc-900 flex justify-end">
+                  <a href={selectedProject.github} target="_blank" className="flex items-center gap-2 text-white bg-zinc-900 px-6 py-3 rounded-xl text-xs hover:bg-zinc-800 transition-all font-bold border border-zinc-800 uppercase">
+                    <Github size={14}/> Sources
+                  </a>
                 </div>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
 
+        {/* CONTACT */}
         <section id="contact" className="mb-24">
           <div className="bento-card p-12 text-center bg-gradient-to-t from-blue-900/10 to-transparent border border-blue-500/20 italic">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6 uppercase italic">Prêt à collaborer ?</h2>
-            <p className="text-zinc-500 max-w-lg mx-auto mb-10 text-lg leading-relaxed font-sans italic text-balance">
-              À la recherche d'un stage du 23 fév. au 5 avril. Contactez-moi par mail ou LinkedIn.
-            </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-              <a href="mailto:theolaplacepro2@gmail.com" className="bg-white text-black px-10 py-5 rounded-2xl font-bold hover:bg-zinc-200 transition-all flex items-center gap-3 uppercase italic shadow-lg shadow-white/5">
-                <Mail size={20}/> Envoyer un Mail
+              <a href="mailto:theolaplacepro2@gmail.com" className="bg-white text-black px-10 py-5 rounded-2xl font-bold hover:bg-zinc-200 transition-all flex items-center gap-3 uppercase italic">
+                <Mail size={20}/> Contact
               </a>
-              <div className="flex gap-4">
-                <a href="https://www.linkedin.com/in/theolaplace" target="_blank" className="h-16 w-16 glass rounded-2xl flex items-center justify-center hover:bg-white/10 transition-all border border-zinc-800">
-                  <Linkedin size={24}/>
-                </a>
-              </div>
+              <a href="https://www.linkedin.com/in/theolaplace" target="_blank" className="h-16 w-16 glass rounded-2xl flex items-center justify-center hover:bg-white/10 transition-all border border-zinc-800">
+                <Linkedin size={24}/>
+              </a>
             </div>
           </div>
         </section>
-
-        <footer className="py-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6 text-zinc-500 text-xs uppercase font-bold italic tracking-widest">
-           <p>© 2026 Théo Laplace.</p>
-           <div className="flex gap-10 font-sans">
-              <a href="https://github.com/theolaplace" target="_blank" className="hover:text-white transition-colors">GitHub</a>
-              <a href="https://www.linkedin.com/in/theolaplace" target="_blank" className="hover:text-white transition-colors">LinkedIn</a>
-           </div>
-        </footer>
 
       </div>
     </div>
