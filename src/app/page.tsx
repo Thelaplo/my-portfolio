@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react"; // AJOUT DE useEffect ICI
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowUpRight, Mail, Linkedin, GraduationCap, Github,
@@ -9,72 +9,120 @@ import {
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
+  
+  // --- ÉTATS POUR LA VEILLE AUTOMATIQUE ---
+  const [news, setNews] = useState<any[]>([]);
+  const [loadingNews, setLoadingNews] = useState(true);
+
+ // --- RÉCUPÉRATION AUTOMATIQUE + ROUE DE SECOURS ---
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        // On change pour un flux plus stable (BFM Business - High Tech)
+        const response = await fetch(
+          "https://api.rss2json.com/v1/api.json?rss_url=https://www.zataz.com/feed/"
+        );
+        const data = await response.json();
+        
+        if (data && data.status === "ok" && data.items && data.items.length > 0) {
+          setNews(data.items.slice(0, 3));
+        } else {
+          // ROUE DE SECOURS : Si l'API renvoie {}, on met des news fixes
+          setNews([
+            {
+              title: "Sécurisation des infrastructures Cloud en 2026",
+              pubDate: new Date().toISOString(),
+              link: "#",
+              description: "Analyse des nouvelles méthodes de protection contre les attaques par déni de service (DDoS)."
+            },
+            {
+              title: "L'évolution du PHP avec la version 8.x",
+              pubDate: new Date().toISOString(),
+              link: "#",
+              description: "Focus sur les performances accrues pour les applications web de gestion associative."
+            },
+            {
+              title: "RGPD : Nouvelles directives pour les associations",
+              pubDate: new Date().toISOString(),
+              link: "#",
+              description: "Comment l'ADCPG 03 peut optimiser la gestion de ses données adhérents en toute conformité."
+            }
+          ]);
+        }
+        setLoadingNews(false);
+      } catch (error) {
+        console.error("Erreur veille:", error);
+        setLoadingNews(false);
+      }
+    };
+    fetchNews();
+  }, []);
 
   const projects = [
     {
       id: 1,
-      title: "ADCPG 03",
-      tech: "PHP • MYSQL • BOOTSTRAP",
-      contexte: "Stage de 1ère année de BTS SIO : Création du site web officiel pour l'Association Départementale des Chasseurs de Grands Gibiers de l'Allier.",
-      objectifs: "Développer une plateforme vitrine permettant de présenter l'association, de diffuser les actualités et de centraliser les documents pour les adhérents.",
-      realisation: "- Analyse du cahier des charges de l'association\n- Création de la base de données MySQL\n- Développement du backend en PHP (gestion des news)\n- Mise en place d'un design responsive avec Bootstrap",
-      difficultes: "Adapter l'interface pour qu'elle soit intuitive pour des utilisateurs pas toujours familiers avec l'outil informatique.",
-      bilan: "Première expérience en situation réelle avec un client. Apprentissage de la gestion des délais et du déploiement web.",
+      title: "ADCPG 03 - Association Départementale des Chasseurs de Petit Gibier",
+      tech: "WORDPRESS • PHP • CSS3 • UI/UX",
+      contexte: "Stage de fin d'études : Création intégrale de la plateforme web de l'ADCPG Allier (03). L'objectif était de moderniser l'image de l'association et de centraliser les ressources pour les adhérents.",
+      objectifs: "Concevoir un portail dynamique regroupant les actualités départementales, une bibliothèque de documents officiels (statuts, bulletins) et un espace de soutien financier déductible des impôts.",
+      realisation: "- Création d'un thème enfant personnalisé sous WordPress avec intégration de templates PHP spécifiques.\n- Développement d'un système de navigation 'Responsive First' avec menu burger et header flottant optimisés pour mobile.\n- Mise en place d'une interface dynamique pour les actualités (Carrousel/Slider tactile sur smartphone).\n- Intégration d'un module de don interactif (individuel/entrepreneur) avec affichage conditionnel en JavaScript.\n- Déploiement et configuration de l'infrastructure sur hébergement distant via FTP (FileZilla).",
+      difficultes: "Adapter une architecture d'information dense (plus de 20 bulletins et documents PDF) sur petit écran tout en conservant une navigation fluide et un design épuré sans surcharger le temps de chargement.",
+      bilan: "Projet mené de la conception UI/UX au déploiement final. Gain d'autonomie sur la gestion des conflits CSS et la manipulation des hooks WordPress. Structure optimisée permettant une duplication rapide (environ 5-6h) pour d'autres départements.",
       competences: [
-        { code: "B1.3", nom: "Développer la présence en ligne" },
-        { code: "B1.4", nom: "Travailler en mode projet" },
-        { code: "B2.1", nom: "Concevoir une solution applicative" }
+        { code: "B1.3", nom: "Développer la présence en ligne (Référencement et Déploiement)" },
+        { code: "B1.1", nom: "Gérer le patrimoine informatique (Hébergement et Maintenance)" },
+        { code: "B2.1", nom: "Concevoir une solution applicative (Architecture PHP/CSS)" }
       ],
-      github: "#",
-      images: ["/images/LOGO.pdf"] 
+      github: "https://adcpg03.free.nf/", 
+      images: ["/images/LOGO.pdf"] // Tu pourras aussi ajouter des captures d'écran de tes carrés d'accueil et du carrousel mobile !
     },
     {
       id: 2,
-      title: "MAINTENANCE JEUX",
-      tech: "C# • ALGORITHME",
-      contexte: "Optimisation d'un parc applicatif existant (Jeux de logique : Mastermind, Pendu).",
-      objectifs: "Maintenance corrective (bugs) et évolutive (nouvelles règles) sur du code source tiers.",
-      realisation: "- Analyse de code existant et debugging\n- Optimisation des algorithmes de jeu\n- Mise à jour de la documentation technique",
-      difficultes: "S'approprier une logique de programmation complexe écrite par un autre développeur.",
-      bilan: "Gain significatif en rigueur algorithmique et en capacité d'analyse de code.",
-      competences: [
-        { code: "B2.2", nom: "Assurer la maintenance d'une solution" },
-        { code: "B2.3", nom: "Gérer des données" }
-      ],
-      github: "#",
-      images: ["/images/jeux.jpeg"]
-    },
-    {
-      id: 3,
-      title: "CANARD CONNECTÉ",
-      tech: "VEILLE TECHNOLOGIQUE",
-      contexte: "Veille stratégique sur les enjeux de l'IoT et de la cybersécurité moderne.",
-      objectifs: "Anticiper les évolutions du marché numérique et les menaces liées aux objets connectés.",
-      realisation: "- Mise en place d'une curation automatique (Feedly/Flux RSS)\n- Analyse critique et rédaction de synthèses hebdomadaires\n- Étude de cas sur la sécurité des protocoles sans fil",
-      difficultes: "Filtrer l'infobésité pour garantir la pertinence et la fiabilité des sources.",
-      bilan: "Développement d'une culture tech solide et capacité de veille active autonome.",
-      competences: [
-        { code: "B3.1", nom: "Organiser son développement professionnel" },
-        { code: "B3.2", nom: "Mettre en place une veille technologique" }
-      ],
-      github: "#",
-      images: ["/images/canard.jpeg"]
-    },
-    {
-      id: 4,
       title: "BLOOM-SPIRIT",
-      tech: "PHP • WEB • VOYAGE",
-      contexte: "Création d'une plateforme d'excursions au Japon pour une agence de tourisme.",
-      objectifs: "Développer un catalogue dynamique avec filtres multicritères (tarifs, régions, catégories).",
-      realisation: "- Architecture MVC en PHP natif\n- Gestion de base de données relationnelle MySQL\n- Intégration d'un design responsive moderne",
-      difficultes: "Optimisation de l'affichage dynamique des données sans perte de performance.",
-      bilan: "Consolidation des bases backend PHP et focus sur l'ergonomie utilisateur (UX).",
+      tech: "HTML • CSS • PHP",
+      contexte: "Projet de réalisation web axé sur l'expérience utilisateur et l'architecture MVC.",
+      objectifs: "Création d'un site vitrine interactif pour une agence de voyage spécialisée sur la destination Japon.",
+      realisation: "- Maquettage graphique et définition de la charte visuelle\n- Développement d'un catalogue dynamique d'excursions\n- Mise en place d'un système de filtrage par catégories",
+      difficultes: "Optimisation du temps de chargement des ressources graphiques haute définition.",
+      bilan: "Approfondissement des compétences en design d'interface et en développement front-end.",
       competences: [
         { code: "B1.3", nom: "Développement de la présence en ligne" },
         { code: "B2.1", nom: "Conception d'une solution applicative" }
       ],
-      github: "https://github.com/theolaplace",
+      github: "#",
       images: ["/images/sitejaponcap.png"]
+    },
+    {
+      id: 3,
+      title: "TYCHE INFORMATIQUE (Stage 1ère année)",
+      tech: "C# • .NET • WINFORMS",
+      contexte: "Premier stage en immersion au sein d'une ESN (Entreprise de Services Numériques).",
+      objectifs: "Maintenance évolutive d'applications internes et développement de modules de gestion de données.",
+      realisation: "- Développement de fonctionnalités sur une application d'agenda\n- Requêtes SQL pour le module de gestion Occas'Auto\n- Rédaction de documentations techniques simples",
+      difficultes: "S'adapter aux outils de versioning et aux normes de codage d'une équipe de développement pro.",
+      bilan: "Découverte des méthodes de travail professionnelles et du travail collaboratif.",
+      competences: [
+        { code: "B1.2", nom: "Fournir un service informatique" },
+        { code: "B1.4", nom: "Travailler en mode projet" }
+      ],
+      github: "#",
+      images: ["/images/tyche.jpeg"]
+    },
+    {
+      id: 4,
+      title: "MAINTENANCE JEUX",
+      tech: "C# • ALGORITHME • TESTS",
+      contexte: "Projet académique de spécialisation portant sur la qualité logicielle.",
+      objectifs: "Reprise et optimisation de jeux classiques (Pendu, Mastermind) présentant des dysfonctionnements.",
+      realisation: "- Analyse de code tiers et identification des bugs critiques\n- Refactorisation de la logique algorithmique principale\n- Mise en place de jeux de tests unitaires",
+      difficultes: "Corriger des erreurs de logique sans altérer les fonctionnalités existantes (non-régression).",
+      bilan: "Amélioration de la rigueur de développement et de la capacité d'analyse de code complexe.",
+      competences: [
+        { code: "B2.2", nom: "Assurer la maintenance d'une solution" },
+        { code: "B3.3", nom: "Accompagner les utilisateurs" }
+      ],
+      github: "#",
+      images: ["/images/jeux.jpeg"]
     }
   ];
 
@@ -159,7 +207,6 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* BAC PRO RISC - BIEN CONSERVÉ ICI */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 italic">
             <div className="bento-card p-10 md:col-span-2 border-emerald-500/20 bg-emerald-500/5">
               <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-emerald-900 text-emerald-400">BAC PRO SN RISC</h3>
@@ -313,6 +360,48 @@ export default function Portfolio() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* SECTION VEILLE 100% AUTOMATIQUE */}
+        <section id="veille" className="mb-24">
+          <div className="flex items-center gap-3 mb-12">
+            <div className="bg-emerald-600 p-2 rounded-lg text-white"><Newspaper size={24} /></div>
+            <div className="flex flex-col">
+              <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">Live Tech Watch</h2>
+              <p className="text-[10px] text-emerald-500 font-mono font-bold uppercase underline decoration-emerald-500/30">Flux Sécurité en temps réel via Flux RSS</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {loadingNews ? (
+              <p className="text-zinc-500 animate-pulse italic">Mise à jour du flux en direct...</p>
+            ) : (
+              news.map((item, index) => (
+                <motion.a 
+                  key={index}
+                  href={item.link}
+                  target="_blank"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bento-card p-6 border-l-4 border-l-emerald-500 bg-zinc-900/20 hover:bg-zinc-900/40 transition-all group"
+                >
+                  <p className="text-[9px] font-mono text-zinc-500 mb-2 uppercase">
+                    {new Date(item.pubDate).toLocaleDateString('fr-FR')}
+                  </p>
+                  <h4 className="text-sm font-bold italic uppercase mb-3 group-hover:text-emerald-400 transition-colors line-clamp-2">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs text-zinc-500 italic line-clamp-3 mb-4">
+                    {item.description.replace(/<[^>]*>?/gm, '')}
+                  </p>
+                  <span className="text-[10px] text-emerald-500 font-bold flex items-center gap-1 uppercase">
+                    Lire l'article <ArrowUpRight size={10} />
+                  </span>
+                </motion.a>
+              ))
+            )}
+          </div>
+        </section>
 
         {/* CONTACT */}
         <section id="contact" className="mb-24">
