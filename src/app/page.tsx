@@ -26,7 +26,7 @@ export default function Portfolio() {
         { code: "B2.1", nom: "Concevoir une solution applicative" }
       ],
       github: "#",
-      images: ["/images/logo.pdf"] 
+      images: ["/images/LOGO.pdf"] 
     },
     {
       id: 2,
