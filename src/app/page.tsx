@@ -131,46 +131,44 @@ export default function Portfolio() {
       title: "GLPI - Gestion de parc",
       tech: "LINUX • RÉSEAU",
       desc: "Installation et configuration d'un serveur GLPI pour la gestion des incidents (tickets) et l'inventaire matériel.",
-      // Pour ce projet, on garde le logo GLPI, mais on va l'afficher différemment.
-      logo: "/images/glpi.jpeg" // Assure-toi d'avoir une icône avec fond transparent si possible
+      images: ["/images/glpi.jpeg"] 
     },
     {
       id: 6,
       title: "Sport'SIO",
       tech: "MySql • C#",
-      desc: "Application console de gestion d'une base de données sportive (clubs, adhérents, compétitions) avec interface de requêtage SQL.",
-      logo: "/images/sport.jpeg" // Télécharge un logo BASH/Linux propre.
+      desc: "Application console de gestion d'une base de données sportive.",
+      images: ["/images/sport.jpeg"]
     },
     {
       id: 7,
-      title: "Shrek's Maths Academy (Gestion)",
+      title: "Shrek's Maths Academy",
       tech: "C# • SQL SERVER",
-      desc: "Développement du module de gestion de stock et des utilisateurs pour l'application Shrek.",
-      // Ici, on remplace l'image de Shrek par le logo C#.
-      logo: "/images/logoC.jpeg" // Télécharge un logo C# propre.
+      desc: "Développement du module de gestion de stock pour l'application Shrek.",
+      images: ["/images/logoC.jpeg"]
     },
     {
       id: 8,
       title: "CSS ZEN GARDEN",
       tech: "CSS",
       desc: "Développement d'une maquette CSS pour le site Zen Garden.",
-      logo: "/images/css.jpeg"
+      images: ["/images/css.jpeg"]
     },
     {
       id: 9,
       title: "Site HTML Publicitaire",
       tech: "HTML • CSS",
       desc: "Développement d'une maquette HTML/CSS pour un site publicitaire.",
-      logo: "/images/voiture.jpeg"
+      images: ["/images/voiture.jpeg"]
     },
     {
       id: 10,
       title: "Application de GestionVintage",
       tech: "PHP • SQL SERVER • NODEJS",
-      desc: "Développement du module de gestion de stock et des utilisateurs pour l'application Shrek.",
-      logo: "/images/vinted.jpeg" 
+      desc: "Développement du module de gestion de stock et des utilisateurs.",
+      images: ["/images/vinted.jpeg"] 
     }
-  ];
+];
 
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10 md:px-20 selection:bg-blue-500/30 font-sans">
@@ -415,28 +413,23 @@ export default function Portfolio() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {otherProjects.map((op) => (
-              <div key={op.id} className="bento-card p-4 h-[400px] flex flex-col justify-between group cursor-default">
-                {/* IMAGE / LOGO */}
+              <div key={op.id} className="bento-card p-4 h-[400px] flex flex-col justify-between group">
                 <div className="w-full h-64 bg-zinc-900 rounded-[1.5rem] border border-zinc-800 overflow-hidden relative flex items-center justify-center">
-                  {/* ON TENTE D'AFFICHER L'IMAGE */}
-                  <img 
-                    src={op.logo || op.images?.[0]} 
-                    alt={op.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    // SI L'IMAGE BUG, ON LA CACHE SIMPLEMENT
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none'; 
-                      e.currentTarget.parentElement?.classList.add('bg-zinc-900'); 
-                    }}
-                  />
-                  {/* L'icône Code2 a été supprimée d'ici pour laisser le fond vide en cas d'erreur */}
+                  {op.images && op.images[0] && (
+                    <img 
+                      src={op.images[0]} 
+                      alt={op.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                  )}
                 </div>
-
-                {/* TEXTE */}
                 <div className="mt-4 px-2">
                   <span className="text-[10px] text-blue-500 font-mono font-bold uppercase tracking-widest">{op.tech}</span>
-                  <h4 className="font-bold text-sm mt-1 uppercase italic leading-tight">{op.title}</h4>
-                  <p className="text-[11px] text-zinc-500 mt-2 italic line-clamp-2 leading-relaxed">{op.desc}</p>
+                  <h4 className="font-bold text-sm mt-1 uppercase italic">{op.title}</h4>
+                  <p className="text-[11px] text-zinc-500 mt-2 italic line-clamp-2">{op.desc}</p>
                 </div>
               </div>
             ))}
