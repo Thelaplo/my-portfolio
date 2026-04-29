@@ -11,7 +11,7 @@ export default function StarBackground() {
 
     const resize = () => {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = document.body.scrollHeight; 
     };
     resize();
     window.addEventListener("resize", resize);
