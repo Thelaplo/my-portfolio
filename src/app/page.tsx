@@ -1,17 +1,26 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
 import { 
   ArrowUpRight, Mail, Linkedin, GraduationCap, Github,
   CheckCircle2, Code2, Layout, Smartphone, 
   Send, Laptop, Database, ShieldCheck, Newspaper, X, Briefcase, FileText, Router, Server
 } from "lucide-react";
 
+const GithubCalendarWrapper = dynamic(() => import('./GithubCalendarWrapper'), {
+  ssr: false,
+  loading: () => <div className="h-[150px] w-full bg-zinc-900 animate-pulse rounded-xl" />
+});
+
 export default function Portfolio() {
+  // --- ÉTATS DU PORTFOLIO ---
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [news, setNews] = useState<any[]>([]);
   const [loadingNews, setLoadingNews] = useState(true);
+  
 
+  // Chargement de la veille (API)
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -54,24 +63,24 @@ export default function Portfolio() {
   }, []);
 
   const projects = [
-    {
-      id: 1,
-      title: "ADCPG 03 - Association Départementale des Chasseurs de Petit Gibier",
-      tech: "WORDPRESS • PHP • CSS3 • UI/UX",
-      contexte: "Stage de fin d'études : Création intégrale de la plateforme web de l'ADCPG Allier (03). L'objectif était de moderniser l'image de l'association et de centraliser les ressources pour les adhérents.",
-      objectifs: "Concevoir un portail dynamique regroupant les actualités départementales, une bibliothèque de documents officiels (statuts, bulletins) et un espace de soutien financier déductible des impôts.",
-      realisation: "- Création d'un thème enfant personnalisé sous WordPress avec intégration de templates PHP spécifiques.\n- Développement d'un système de navigation 'Responsive First' avec menu burger et header flottant optimisés pour mobile.\n- Mise en place d'une interface dynamique pour les actualités (Carrousel/Slider tactile sur smartphone).\n- Intégration d'un module de don interactif (individuel/entrepreneur) avec affichage conditionnel en JavaScript.\n- Déploiement et configuration de l'infrastructure sur hébergement distant via FTP (FileZilla).",
-      difficultes: "Adapter une architecture d'information dense (plus de 20 bulletins et documents PDF) sur petit écran tout en conservant une navigation fluide et un design épuré sans surcharger le temps de chargement.",
-      bilan: "Projet mené de la conception UI/UX au déploiement final. Gain d'autonomie sur la gestion des conflits CSS et la manipulation des hooks WordPress. Structure optimisée permettant une duplication rapide (environ 5-6h) pour d'autres départements.",
-      competences: [
-        { code: "B1.3", nom: "Développer la présence en ligne (Référencement et Déploiement)" },
-        { code: "B1.1", nom: "Gérer le patrimoine informatique (Hébergement et Maintenance)" },
-        { code: "B2.1", nom: "Concevoir une solution applicative (Architecture PHP/CSS)" }
-      ],
-      github: "https://adcpg03.free.nf/", 
-      logo: "/images/LOGO.pdf", 
-      images: ["/images/LOGO.pdf"] 
-    },
+    // {
+    //   id: 1,
+    //   title: "ADCPG 03 - Association Départementale des Chasseurs de Petit Gibier",
+    //   tech: "WORDPRESS • PHP • CSS3 • UI/UX",
+    //   contexte: "Stage de fin d'études : Création intégrale de la plateforme web de l'ADCPG Allier (03). L'objectif était de moderniser l'image de l'association et de centraliser les ressources pour les adhérents.",
+    //   objectifs: "Concevoir un portail dynamique regroupant les actualités départementales, une bibliothèque de documents officiels (statuts, bulletins) et un espace de soutien financier déductible des impôts.",
+    //   realisation: "- Création d'un thème enfant personnalisé sous WordPress avec intégration de templates PHP spécifiques.\n- Développement d'un système de navigation 'Responsive First' avec menu burger et header flottant optimisés pour mobile.\n- Mise en place d'une interface dynamique pour les actualités (Carrousel/Slider tactile sur smartphone).\n- Intégration d'un module de don interactif (individuel/entrepreneur) avec affichage conditionnel en JavaScript.\n- Déploiement et configuration de l'infrastructure sur hébergement distant via FTP (FileZilla).",
+    //   difficultes: "Adapter une architecture d'information dense (plus de 20 bulletins et documents PDF) sur petit écran tout en conservant une navigation fluide et un design épuré sans surcharger le temps de chargement.",
+    //   bilan: "Projet mené de la conception UI/UX au déploiement final. Gain d'autonomie sur la gestion des conflits CSS et la manipulation des hooks WordPress. Structure optimisée permettant une duplication rapide (environ 5-6h) pour d'autres départements.",
+    //   competences: [
+    //     { code: "B1.3", nom: "Développer la présence en ligne (Référencement et Déploiement)" },
+    //     { code: "B1.1", nom: "Gérer le patrimoine informatique (Hébergement et Maintenance)" },
+    //     { code: "B2.1", nom: "Concevoir une solution applicative (Architecture PHP/CSS)" }
+    //   ],
+    //   github: "https://adcpg03.free.nf/", 
+    //   logo: "/images/LOGO.pdf", 
+    //   images: ["/images/LOGO.pdf"] 
+    // },
     {
       id: 2,
       title: "BLOOM SPIRIT",
@@ -88,7 +97,7 @@ export default function Portfolio() {
       ],
       github: "#",
       logo: "/images/sitejaponcap.png",
-      images: ["/images/sitejaponcap.png", "/images/bloom_details.png"] 
+      images: ["/images/sitejaponcap.png", "/images/BloomSpiritDetail.png","/images/BloomSpiritAdmin.png"] 
     },
     {
       id: 3,
@@ -104,7 +113,7 @@ export default function Portfolio() {
         { code: "B1.4", nom: "Travailler en mode projet" }
       ],
       github: "#",
-      logo: "/images/tyche.jpeg",
+      logo: "/images/tyche.png",
       images: ["/images/tyche.jpeg"]
     },
     {
@@ -123,7 +132,7 @@ export default function Portfolio() {
       ],
       github: "#",
       logo: "/images/Vinted.jpeg",
-      images: ["/images/Vinted.jpeg"]
+      images: ["/images/entrepriseAccueil.png", "/images/entrepriseStock.png","/images/entrepriseCommandes.png", "/images/entrepriseKPI.png"]
     }
   ];
 
@@ -185,6 +194,76 @@ export default function Portfolio() {
              </div>
           </motion.div>
         </section>
+        {/* SECTION GITHUB */}
+        <section id="github" className="mb-24">
+          <div className="flex items-center gap-3 mb-12">
+            <div className="bg-zinc-800 p-2 rounded-lg text-white">
+              <Github size={24} />
+            </div>
+            <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">
+              Contributions GitHub
+            </h2>
+          </div>
+
+          <div className="bento-card p-10 flex flex-col items-center bg-zinc-900/10 border border-zinc-800 overflow-hidden">
+            <GithubCalendarWrapper />   {/* ← ici */}
+          </div>
+
+        </section>
+        {/* FORMATION */}
+                <section id="formation" className="mb-24 space-y-6">
+                  <div className="flex items-center gap-3 mb-12">
+                    <div className="bg-zinc-800 p-2 rounded-lg text-white"><GraduationCap size={24} /></div>
+                    <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">Parcours Académique</h2>
+                  </div>
+        
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="bento-card p-10 md:col-span-2">
+                      <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-zinc-800 text-blue-400">BTS SIO • Option SLAM</h3>
+                      <p className="text-zinc-400 leading-relaxed mb-8 italic text-balance">
+                        Services Informatiques aux Organisations. Spécialisation Solutions Logicielles et Applications Métiers.
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans italic">
+                        <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> Développement Web</div>
+                        <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> Analyse de cybersécurité</div>
+                        <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> Gestion de projet (Agile)</div>
+                        <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> SQL & Architecture NoSQL</div>
+                      </div>
+                    </div>
+        
+                    <div className="bento-card p-8 bg-zinc-900/40 border border-zinc-800 italic">
+                      <h4 className="text-sm font-mono text-zinc-500 uppercase mb-6 font-bold">Expertise BTS</h4>
+                      <div className="space-y-6 text-sm">
+                        <div className="flex items-center gap-3"><Laptop size={18} className="text-blue-400"/> <span>C# / PHP / JS</span></div>
+                        <div className="flex items-center gap-3"><Database size={18} className="text-purple-400"/> <span>MySQL / SQL Server</span></div>
+                        <div className="flex items-center gap-3"><ShieldCheck size={18} className="text-emerald-400"/> <span>Cybersécurité</span></div>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 italic">
+                    <div className="bento-card p-10 md:col-span-2 border-emerald-500/20 bg-emerald-500/5">
+                      <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-emerald-900 text-emerald-400">BAC PRO SN RISC</h3>
+                      <p className="text-zinc-400 leading-relaxed mb-8 font-light italic">
+                        Mention Assez Bien • Systèmes Numériques, Option RISC.
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-sans">
+                        <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Installation de systèmes</div>
+                        <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Administration des réseaux</div>
+                        <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Maintenance matérielle</div>
+                        <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Configuration CISCO</div>
+                      </div>
+                    </div>
+                    <div className="bento-card p-8 bg-zinc-900/40 border border-zinc-800">
+                      <h4 className="text-sm font-mono text-emerald-500 uppercase mb-6 font-bold">Expertise BAC</h4>
+                      <div className="space-y-6 text-sm">
+                        <div className="flex items-center gap-3"><Router size={18} className="text-emerald-400"/> <span>Cisco / Réseaux</span></div>
+                        <div className="flex items-center gap-3"><Server size={18} className="text-emerald-400"/> <span>Windows Server</span></div>
+                        <div className="flex items-center gap-3"><Smartphone size={18} className="text-emerald-400"/> <span>Maintenance</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
 
         {/* PROJETS */}
         <section id="projets" className="mb-24">
