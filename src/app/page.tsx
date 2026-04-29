@@ -201,6 +201,7 @@ const experiences = [
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-20 py-4 backdrop-blur-md bg-black/40 border-b border-zinc-800/50">
         <div className="font-bold text-xl tracking-tighter italic">THÉO LAPLACE.</div>
         <div className="flex gap-8 text-sm text-zinc-400 items-center">
+          <a href="#about" className="hover:text-white transition-colors">À propos</a>
           <a href="#accueil" className="hover:text-white transition-colors">Accueil</a>
           <a href="#formation" className="hover:text-white transition-colors">Formation</a>
           <a href="#experience" className="hover:text-white transition-colors">Expérience</a>
@@ -209,6 +210,79 @@ const experiences = [
           <a href="#contact" className="bg-white text-black px-5 py-2 rounded-full font-medium text-xs hover:bg-zinc-200 transition-all">Contact</a>
         </div>
       </nav>
+      {/* ABOUT ME */}
+      <section id="about" className="mb-24">
+        <div className="flex items-center gap-3 mb-12">
+          <div className="bg-zinc-800 p-2 rounded-lg text-white">
+            <Code2 size={24} />
+          </div>
+          <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">
+            À propos
+          </h2>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bento-card p-10 grid grid-cols-1 md:grid-cols-3 gap-10 items-center"
+        >
+          {/* PHOTO */}
+          <div className="flex justify-center md:justify-start">
+            <div className="relative w-52 h-52 z-10">
+              <div className="absolute inset-0 rounded-3xl bg-blue-500/20 blur-2xl" />
+              <img
+                src="/images/moi.jpeg"
+                alt="Théo Laplace"
+                className="relative z-10 w-52 h-52 rounded-3xl object-cover border border-zinc-700 shadow-2xl"
+              />
+              <div className="absolute inset-0 rounded-3xl border border-zinc-700" />
+            </div>
+          </div>
+
+          {/* TEXTE */}
+          <div className="md:col-span-2 space-y-6">
+            <div>
+              <h3 className="text-3xl font-bold uppercase italic tracking-tighter">
+                Théo Laplace
+              </h3>
+              <p className="text-blue-500 font-mono text-xs uppercase tracking-widest mt-1 font-bold">
+                Étudiant BTS SIO SLAM • Fullstack Dev
+              </p>
+            </div>
+
+            <p className="text-zinc-400 leading-relaxed italic text-balance">
+              Passionné par le développement web, je conçois des applications modernes 
+              de la conception UI jusqu'au déploiement. Actuellement en BTS SIO option SLAM, 
+              je suis à la recherche d'une <span className="text-white font-bold">alternance pour 2026</span> afin 
+              de mettre mes compétences au service d'une équipe ambitieuse.
+            </p>
+
+            {/* INFOS RAPIDES */}
+            <div className="flex flex-wrap gap-3">
+              <div className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-full text-xs text-zinc-300 font-bold italic">
+                📍 Clermont-Ferrand
+              </div>
+              <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-4 py-2 rounded-full text-xs text-emerald-400 font-bold italic">
+                ✅ Disponible en alternance
+              </div>
+              <div className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 px-4 py-2 rounded-full text-xs text-blue-400 font-bold italic">
+                💻 Fullstack Dev
+              </div>
+            </div>
+
+            {/* LIENS */}
+            <div className="flex gap-4 pt-2">
+              <a href="mailto:theolaplacepro2@gmail.com" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-xl text-xs font-bold transition-all uppercase italic">
+                <Mail size={14} /> Me contacter
+              </a>
+              <a href="/images/CV2TheoLaplace.pdf" target="_blank" className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 px-6 py-3 rounded-xl text-xs font-bold transition-all uppercase italic">
+                <FileText size={14} /> Mon CV
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </section>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
