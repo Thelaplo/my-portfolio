@@ -168,9 +168,9 @@ const levels = [
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-10 md:px-20 selection:bg-blue-500/30 font-sans">
+    <div className="min-h-screen bg-black text-white px-6 pt-24 pb-10 md:px-20 selection:bg-blue-500/30 font-sans">
     <StarBackground /> 
-      <nav className="flex justify-between items-center mb-20 max-w-7xl mx-auto">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-20 py-4 backdrop-blur-md bg-black/40 border-b border-zinc-800/50">
         <div className="font-bold text-xl tracking-tighter italic">THÉO LAPLACE.</div>
         <div className="flex gap-8 text-sm text-zinc-400 items-center">
           <a href="#accueil" className="hover:text-white transition-colors">Accueil</a>
