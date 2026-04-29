@@ -40,6 +40,34 @@ const levels = [
   { label: "Diamant", color: "text-blue-300",   bg: "bg-blue-900/20",   border: "border-blue-400",   glow: "shadow-blue-400/50" },
   { label: "Maître",  color: "text-purple-300", bg: "bg-purple-900/20", border: "border-purple-400", glow: "shadow-purple-500/60" },
 ];
+const experiences = [
+  {
+    title: "Stage Développement Web",
+    company: "ADCPG 03",
+    location: "Hyds, 03600",
+    date: "Fév 2025 → Avr 2025",
+    color: "blue",
+    tasks: [
+      "Développement d'un site WordPress de A à Z",
+      "Création d'un thème enfant PHP personnalisé",
+      "Navigation responsive avec menu burger",
+      "Module de don interactif en JavaScript",
+      "Déploiement FTP via FileZilla",
+    ],
+  },
+  {
+    title: "Stage Développement Web",
+    company: "Tyche Informatique",
+    location: "Clermont-Ferrand",
+    date: "Mai 2025 → Juin 2025",
+    color: "purple",
+    tasks: [
+      "Développement de fonctionnalités sur une application agenda en C#",
+      "Conception du site Occas'Auto avec base de données SQL",
+      "Travail en équipe selon les normes de codage pro",
+    ],
+  },
+];
   
 
   // Chargement de la veille (API)
@@ -175,6 +203,7 @@ const levels = [
         <div className="flex gap-8 text-sm text-zinc-400 items-center">
           <a href="#accueil" className="hover:text-white transition-colors">Accueil</a>
           <a href="#formation" className="hover:text-white transition-colors">Formation</a>
+          <a href="#experience" className="hover:text-white transition-colors">Expérience</a>
           <a href="#competences" className="hover:text-white transition-colors">Compétences</a>
           <a href="#projets" className="hover:text-white transition-colors">Projets</a>
           <a href="#contact" className="bg-white text-black px-5 py-2 rounded-full font-medium text-xs hover:bg-zinc-200 transition-all">Contact</a>
@@ -297,6 +326,80 @@ const levels = [
                 <div className="flex items-center gap-3"><Server size={18} className="text-emerald-400"/> <span>Windows Server</span></div>
                 <div className="flex items-center gap-3"><Smartphone size={18} className="text-emerald-400"/> <span>Maintenance</span></div>
               </div>
+            </div>
+          </div>
+        </section>
+        {/* EXPÉRIENCE PRO */}
+        <section id="experience" className="mb-24">
+          <div className="flex items-center gap-3 mb-12">
+            <div className="bg-zinc-800 p-2 rounded-lg text-white">
+              <Briefcase size={24} />
+            </div>
+            <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">
+              Expérience Professionnelle
+            </h2>
+          </div>
+
+          <div className="relative">
+            {/* Ligne verticale centrale */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-zinc-800 hidden md:block" />
+
+            <div className="space-y-12">
+              {experiences.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                  className={`relative grid grid-cols-1 md:grid-cols-2 gap-6 ${index % 2 === 0 ? "" : "md:direction-rtl"}`}
+                >
+                  {/* Point sur la timeline */}
+                  <div className={`absolute left-1/2 -translate-x-1/2 top-8 w-4 h-4 rounded-full border-2 hidden md:block z-10 ${
+                    exp.color === "blue" ? "bg-blue-500 border-blue-300" : "bg-purple-500 border-purple-300"
+                  }`} />
+
+                  {/* Carte côté gauche ou droite */}
+                  <div className={index % 2 === 0 ? "md:pr-12" : "md:col-start-2 md:pl-12"}>
+                    <div className={`bento-card p-6 border ${
+                      exp.color === "blue" ? "border-blue-500/30 bg-blue-500/5" : "border-purple-500/30 bg-purple-500/5"
+                    }`}>
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <h3 className={`font-bold uppercase italic text-lg ${
+                            exp.color === "blue" ? "text-blue-400" : "text-purple-400"
+                          }`}>
+                            {exp.title}
+                          </h3>
+                          <p className="text-zinc-400 text-sm font-bold mt-1">{exp.company}</p>
+                          <p className="text-zinc-600 text-xs mt-0.5">{exp.location}</p>
+                        </div>
+                        <span className={`text-xs font-mono font-bold px-3 py-1 rounded-full border ${
+                          exp.color === "blue"
+                            ? "text-blue-400 border-blue-500/30 bg-blue-500/10"
+                            : "text-purple-400 border-purple-500/30 bg-purple-500/10"
+                        }`}>
+                          {exp.date}
+                        </span>
+                      </div>
+
+                      <ul className="space-y-2">
+                        {exp.tasks.map((task, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-zinc-400 italic">
+                            <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                              exp.color === "blue" ? "bg-blue-500" : "bg-purple-500"
+                            }`} />
+                            {task}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Espace vide côté opposé */}
+                  <div className={index % 2 === 0 ? "hidden md:block" : "hidden md:block md:col-start-1 md:row-start-1"} />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
