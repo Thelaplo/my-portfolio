@@ -8,6 +8,9 @@ import {
   Send, Laptop, Database, ShieldCheck, Newspaper, X, Briefcase, FileText, Router, Server
 } from "lucide-react";
 
+const StarBackground = dynamic(() => import("./StarBackground"), { ssr: false });
+const Typewriter = dynamic(() => import("typewriter-effect"), { ssr: false });
+
 const GithubCalendarWrapper = dynamic(() => import('./GithubCalendarWrapper'), {
   ssr: false,
   loading: () => <div className="h-[150px] w-full bg-zinc-900 animate-pulse rounded-xl" />
@@ -18,6 +21,25 @@ export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [news, setNews] = useState<any[]>([]);
   const [loadingNews, setLoadingNews] = useState(true);
+  const skills = [
+  { name: "HTML / CSS", level: 4, icon: "🎨" },
+  { name: "PHP", level: 3, icon: "🐘" },
+  { name: "JavaScript / Vue.js", level: 3, icon: "⚡" },
+  { name: "React / Next.js", level: 2, icon: "⚛️" },
+  { name: "C# / .NET", level: 2, icon: "🔷" },
+  { name: "MySQL / SQL", level: 4, icon: "🗄️" },
+  { name: "Réseaux / Cisco", level: 2, icon: "🌐" },
+  { name: "Cybersécurité", level: 3, icon: "🛡️" },
+];
+
+const levels = [
+  { label: "Bronze",  color: "text-amber-700",  bg: "bg-amber-900/20",  border: "border-amber-800",  glow: "shadow-amber-900/40" },
+  { label: "Argent",  color: "text-zinc-300",   bg: "bg-zinc-700/20",   border: "border-zinc-500",   glow: "shadow-zinc-500/30" },
+  { label: "Or",      color: "text-yellow-400", bg: "bg-yellow-900/20", border: "border-yellow-600", glow: "shadow-yellow-600/40" },
+  { label: "Platine", color: "text-cyan-300",   bg: "bg-cyan-900/20",   border: "border-cyan-500",   glow: "shadow-cyan-500/40" },
+  { label: "Diamant", color: "text-blue-300",   bg: "bg-blue-900/20",   border: "border-blue-400",   glow: "shadow-blue-400/50" },
+  { label: "Maître",  color: "text-purple-300", bg: "bg-purple-900/20", border: "border-purple-400", glow: "shadow-purple-500/60" },
+];
   
 
   // Chargement de la veille (API)
@@ -131,7 +153,7 @@ export default function Portfolio() {
         { code: "B1.4", nom: "Travailler en mode projet (Analyse des besoins et KPI)" }
       ],
       github: "#",
-      logo: "/images/Vinted.jpeg",
+      logo: "/images/vinted.jpeg",
       images: ["/images/entrepriseAccueil.png", "/images/entrepriseStock.png","/images/entrepriseCommandes.png", "/images/entrepriseKPI.png"]
     }
   ];
@@ -147,24 +169,38 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10 md:px-20 selection:bg-blue-500/30 font-sans">
-      
+    <StarBackground /> 
       <nav className="flex justify-between items-center mb-20 max-w-7xl mx-auto">
         <div className="font-bold text-xl tracking-tighter italic">THÉO LAPLACE.</div>
         <div className="flex gap-8 text-sm text-zinc-400 items-center">
           <a href="#accueil" className="hover:text-white transition-colors">Accueil</a>
           <a href="#formation" className="hover:text-white transition-colors">Formation</a>
+          <a href="#competences" className="hover:text-white transition-colors">Compétences</a>
           <a href="#projets" className="hover:text-white transition-colors">Projets</a>
           <a href="#contact" className="bg-white text-black px-5 py-2 rounded-full font-medium text-xs hover:bg-zinc-200 transition-all">Contact</a>
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative z-10">
         
         {/* HERO */}
         <section id="accueil" className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bento-card p-10 col-span-1 md:col-span-2">
             <span className="text-blue-500 font-mono text-xs uppercase tracking-widest font-bold">Étudiant Développeur</span>
-            <h1 className="text-5xl md:text-7xl font-bold mt-4 tracking-tighter leading-[1.1] uppercase italic">Théo Laplace.<br/><span className="text-zinc-600">Fullstack Dev.</span></h1>
+            <h1 className="text-5xl md:text-7xl font-bold mt-4 tracking-tighter leading-[1.1] uppercase italic">
+              <Typewriter
+                options={{
+                  strings: ["Théo Laplace."],
+                  autoStart: true,
+                  loop: false,
+                  delay: 80,
+                  deleteSpeed: Infinity,
+                  wrapperClassName: "text-white",
+                  cursorClassName: "text-blue-500",
+                }}
+              />
+              <span className="text-zinc-600">Fullstack Dev.</span>
+            </h1>
             <p className="text-zinc-500 mt-8 text-lg max-w-md leading-relaxed italic">
               Je conçois des expériences numériques fluides et modernes, de la conception UI au déploiement.
             </p>
@@ -211,59 +247,116 @@ export default function Portfolio() {
 
         </section>
         {/* FORMATION */}
-                <section id="formation" className="mb-24 space-y-6">
-                  <div className="flex items-center gap-3 mb-12">
-                    <div className="bg-zinc-800 p-2 rounded-lg text-white"><GraduationCap size={24} /></div>
-                    <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">Parcours Académique</h2>
+        <section id="formation" className="mb-24 space-y-6">
+          <div className="flex items-center gap-3 mb-12">
+            <div className="bg-zinc-800 p-2 rounded-lg text-white"><GraduationCap size={24} /></div>
+            <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">Parcours Académique</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bento-card p-10 md:col-span-2">
+              <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-zinc-800 text-blue-400">BTS SIO • Option SLAM</h3>
+              <p className="text-zinc-400 leading-relaxed mb-8 italic text-balance">
+                Services Informatiques aux Organisations. Spécialisation Solutions Logicielles et Applications Métiers.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans italic">
+                <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> Développement Web</div>
+                <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> Analyse de cybersécurité</div>
+                <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> Gestion de projet (Agile)</div>
+                <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> SQL & Architecture NoSQL</div>
+              </div>
+            </div>
+
+            <div className="bento-card p-8 bg-zinc-900/40 border border-zinc-800 italic">
+              <h4 className="text-sm font-mono text-zinc-500 uppercase mb-6 font-bold">Expertise BTS</h4>
+              <div className="space-y-6 text-sm">
+                <div className="flex items-center gap-3"><Laptop size={18} className="text-blue-400"/> <span>C# / PHP / JS</span></div>
+                <div className="flex items-center gap-3"><Database size={18} className="text-purple-400"/> <span>MySQL / SQL Server</span></div>
+                <div className="flex items-center gap-3"><ShieldCheck size={18} className="text-emerald-400"/> <span>Cybersécurité</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 italic">
+            <div className="bento-card p-10 md:col-span-2 border-emerald-500/20 bg-emerald-500/5">
+              <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-emerald-900 text-emerald-400">BAC PRO SN RISC</h3>
+              <p className="text-zinc-400 leading-relaxed mb-8 font-light italic">
+                Mention Assez Bien • Systèmes Numériques, Option RISC.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-sans">
+                <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Installation de systèmes</div>
+                <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Administration des réseaux</div>
+                <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Maintenance matérielle</div>
+                <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Configuration CISCO</div>
+              </div>
+            </div>
+            <div className="bento-card p-8 bg-zinc-900/40 border border-zinc-800">
+              <h4 className="text-sm font-mono text-emerald-500 uppercase mb-6 font-bold">Expertise BAC</h4>
+              <div className="space-y-6 text-sm">
+                <div className="flex items-center gap-3"><Router size={18} className="text-emerald-400"/> <span>Cisco / Réseaux</span></div>
+                <div className="flex items-center gap-3"><Server size={18} className="text-emerald-400"/> <span>Windows Server</span></div>
+                <div className="flex items-center gap-3"><Smartphone size={18} className="text-emerald-400"/> <span>Maintenance</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* COMPÉTENCES */}
+        <section id="competences" className="mb-24">
+        <div className="flex items-center gap-3 mb-12">
+          <div className="bg-zinc-800 p-2 rounded-lg text-white">
+            <Code2 size={24} />
+          </div>
+          <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">
+            Compétences
+          </h2>
+        </div>
+
+        {/* Légende */}
+        <div className="flex flex-wrap gap-3 mb-10">
+          {levels.map((l, i) => (
+            <div key={i} className={`flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-bold ${l.bg} ${l.border} ${l.color}`}>
+              <span>{i === 0 ? "🥉" : i === 1 ? "🥈" : i === 2 ? "🥇" : i === 3 ? "💠" : i === 4 ? "💎" : "👑"}</span>
+              {l.label}
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {skills.map((skill, index) => {
+            const lvl = levels[skill.level];
+            return (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className={`bento-card p-6 border ${lvl.border} ${lvl.bg} shadow-lg ${lvl.glow} flex items-center justify-between group`}
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-2xl">{skill.icon}</span>
+                  <div>
+                    <p className={`font-bold uppercase italic tracking-tight ${lvl.color}`}>{skill.name}</p>
+                    <div className="flex gap-1 mt-2">
+                      {levels.map((_, i) => (
+                        <div
+                          key={i}
+                          className={`h-1.5 w-6 rounded-full transition-all duration-500 ${
+                            i <= skill.level ? lvl.border.replace("border-", "bg-") : "bg-zinc-800"
+                          }`}
+                        />
+                      ))}
+                    </div>
                   </div>
-        
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bento-card p-10 md:col-span-2">
-                      <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-zinc-800 text-blue-400">BTS SIO • Option SLAM</h3>
-                      <p className="text-zinc-400 leading-relaxed mb-8 italic text-balance">
-                        Services Informatiques aux Organisations. Spécialisation Solutions Logicielles et Applications Métiers.
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans italic">
-                        <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> Développement Web</div>
-                        <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> Analyse de cybersécurité</div>
-                        <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> Gestion de projet (Agile)</div>
-                        <div className="flex items-center gap-3 text-sm text-zinc-300"><CheckCircle2 size={16} className="text-blue-500" /> SQL & Architecture NoSQL</div>
-                      </div>
-                    </div>
-        
-                    <div className="bento-card p-8 bg-zinc-900/40 border border-zinc-800 italic">
-                      <h4 className="text-sm font-mono text-zinc-500 uppercase mb-6 font-bold">Expertise BTS</h4>
-                      <div className="space-y-6 text-sm">
-                        <div className="flex items-center gap-3"><Laptop size={18} className="text-blue-400"/> <span>C# / PHP / JS</span></div>
-                        <div className="flex items-center gap-3"><Database size={18} className="text-purple-400"/> <span>MySQL / SQL Server</span></div>
-                        <div className="flex items-center gap-3"><ShieldCheck size={18} className="text-emerald-400"/> <span>Cybersécurité</span></div>
-                      </div>
-                    </div>
-                  </div>
-        
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 italic">
-                    <div className="bento-card p-10 md:col-span-2 border-emerald-500/20 bg-emerald-500/5">
-                      <h3 className="text-2xl font-bold mb-6 italic uppercase underline underline-offset-8 decoration-emerald-900 text-emerald-400">BAC PRO SN RISC</h3>
-                      <p className="text-zinc-400 leading-relaxed mb-8 font-light italic">
-                        Mention Assez Bien • Systèmes Numériques, Option RISC.
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-sans">
-                        <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Installation de systèmes</div>
-                        <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Administration des réseaux</div>
-                        <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Maintenance matérielle</div>
-                        <div className="flex items-center gap-3 text-zinc-300"><CheckCircle2 size={16} className="text-emerald-500" /> Configuration CISCO</div>
-                      </div>
-                    </div>
-                    <div className="bento-card p-8 bg-zinc-900/40 border border-zinc-800">
-                      <h4 className="text-sm font-mono text-emerald-500 uppercase mb-6 font-bold">Expertise BAC</h4>
-                      <div className="space-y-6 text-sm">
-                        <div className="flex items-center gap-3"><Router size={18} className="text-emerald-400"/> <span>Cisco / Réseaux</span></div>
-                        <div className="flex items-center gap-3"><Server size={18} className="text-emerald-400"/> <span>Windows Server</span></div>
-                        <div className="flex items-center gap-3"><Smartphone size={18} className="text-emerald-400"/> <span>Maintenance</span></div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+                </div>
+                <div className={`text-xs font-black uppercase italic px-3 py-1 rounded-full border ${lvl.bg} ${lvl.border} ${lvl.color}`}>
+                  {lvl.label}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+        </section>
 
         {/* PROJETS */}
         <section id="projets" className="mb-24">
