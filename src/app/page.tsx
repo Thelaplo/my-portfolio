@@ -45,7 +45,7 @@ const experiences = [
     title: "Stage Développement Web",
     company: "ADCPG 03",
     location: "Hyds, 03600",
-    date: "Fév 2025 → Avr 2025",
+    date: "Fév 2026 → Avr 2026",
     color: "blue",
     tasks: [
       "Développement d'un site WordPress de A à Z",
@@ -243,8 +243,18 @@ const experiences = [
           {/* TEXTE */}
           <div className="md:col-span-2 space-y-6">
             <div>
-              <h3 className="text-3xl font-bold uppercase italic tracking-tighter">
-                Théo Laplace
+              <h3 className="text-5xl md:text-7xl font-bold mt-4 tracking-tighter leading-[1.1] uppercase italic">
+              <Typewriter
+                options={{
+                  strings: ["Théo Laplace."],
+                  autoStart: true,
+                  loop: false,
+                  delay: 80,
+                  deleteSpeed: Infinity,
+                  wrapperClassName: "text-white",
+                  cursorClassName: "text-blue-500",
+                }}
+              />
               </h3>
               <p className="text-blue-500 font-mono text-xs uppercase tracking-widest mt-1 font-bold">
                 Étudiant BTS SIO SLAM • Fullstack Dev
@@ -285,54 +295,6 @@ const experiences = [
       </section>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
-        {/* HERO */}
-        <section id="accueil" className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bento-card p-10 col-span-1 md:col-span-2">
-            <span className="text-blue-500 font-mono text-xs uppercase tracking-widest font-bold">Étudiant Développeur</span>
-            <h1 className="text-5xl md:text-7xl font-bold mt-4 tracking-tighter leading-[1.1] uppercase italic">
-              <Typewriter
-                options={{
-                  strings: ["Théo Laplace."],
-                  autoStart: true,
-                  loop: false,
-                  delay: 80,
-                  deleteSpeed: Infinity,
-                  wrapperClassName: "text-white",
-                  cursorClassName: "text-blue-500",
-                }}
-              />
-              <span className="text-zinc-600">Fullstack Dev.</span>
-            </h1>
-            <p className="text-zinc-500 mt-8 text-lg max-w-md leading-relaxed italic">
-              Je conçois des expériences numériques fluides et modernes, de la conception UI au déploiement.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-10">
-              <a href="#contact" className="bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-2xl flex items-center gap-2 text-sm font-bold transition-all shadow-lg shadow-blue-900/20 uppercase italic">
-                Travaillons ensemble <Send size={16} />
-              </a>
-              <a href="/images/CV2TheoLaplace.pdf" target="_blank" className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 px-8 py-4 rounded-2xl flex items-center gap-2 text-sm font-bold transition-all uppercase italic">
-                Mon CV <FileText size={16} />
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bento-card p-10 flex flex-col justify-between bg-gradient-to-br from-zinc-900/50 to-black">
-             <div className="flex justify-between items-start">
-               <div className="h-16 w-16 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500">
-                  <Code2 size={32} />
-               </div>
-               <div className="text-right">
-                  <p className="text-xs text-zinc-500 font-mono font-bold">STATUT</p>
-                  <p className="text-emerald-500 text-sm font-bold uppercase italic">Disponible</p>
-               </div>
-             </div>
-             <div>
-               <h2 className="text-2xl font-bold tracking-tighter uppercase italic">Alternance</h2>
-               <p className="text-zinc-500 text-xs mt-2 italic font-sans italic">Recherche d'une alternance pour 2026.</p>
-             </div>
-          </motion.div>
-        </section>
         {/* SECTION GITHUB */}
         <section id="github" className="mb-24">
           <div className="flex items-center gap-3 mb-12">
