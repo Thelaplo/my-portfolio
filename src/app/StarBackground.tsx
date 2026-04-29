@@ -11,16 +11,16 @@ export default function StarBackground() {
 
     const resize = () => {
       canvas.width = window.innerWidth;
-      canvas.height = document.body.scrollHeight; 
+      canvas.height = window.innerHeight;
     };
     resize();
     window.addEventListener("resize", resize);
 
-    const stars = Array.from({ length: 150 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
+    // Plus d'étoiles pour couvrir tout l'écran
+    const stars = Array.from({ length: 250 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
       r: Math.random() * 1.5 + 0.3,
-      speed: Math.random() * 0.3 + 0.05,
       opacity: Math.random(),
       delta: Math.random() * 0.005 + 0.002,
     }));
@@ -48,7 +48,7 @@ export default function StarBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-0 pointer-events-none"
+      className="fixed inset-0 w-full h-full z-0 pointer-events-none"
     />
   );
 }
