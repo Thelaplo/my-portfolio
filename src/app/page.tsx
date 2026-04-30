@@ -629,26 +629,53 @@ export default function Portfolio() {
           )}
         </AnimatePresence>
 
-        {/* AUTRES PROJETS */}
+        {/* AUTRES PROJETS - CARROUSEL */}
         <section id="autres-projets" className="mb-24">
           <div className="flex items-center gap-3 mb-12">
             <div className="bg-zinc-800 p-2 rounded-lg text-white"><Briefcase size={24} /></div>
             <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">Projets Académiques & TP</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {otherProjects.map((op) => (
-              <div key={op.id} className="bento-card p-4 h-[400px] flex flex-col justify-between group">
-                <div className="w-full h-64 bg-zinc-900 rounded-[1.5rem] border border-zinc-800 overflow-hidden relative flex items-center justify-center">
-                  <img src={op.images[0]} alt={op.title} className="w-full h-full object-cover" onError={(e) => e.currentTarget.style.display = 'none'} />
-                </div>
-                <div className="mt-4 px-2">
-                  <span className="text-[10px] text-blue-500 font-mono font-bold uppercase tracking-widest">{op.tech}</span>
-                  <h4 className="font-bold text-sm mt-1 uppercase italic">{op.title}</h4>
-                  <p className="text-[11px] text-zinc-500 mt-2 italic">{op.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+
+          <motion.div
+            className="flex gap-4 cursor-grab active:cursor-grabbing overflow-hidden"
+            whileTap={{ cursor: "grabbing" }}
+          >
+            <motion.div
+              className="flex gap-4"
+              drag="x"
+              dragConstraints={{ right: 0, left: -((otherProjects.length - 1) * 320) }}
+              dragElastic={0.1}
+              dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
+            >
+              {otherProjects.map((op) => (
+                <motion.div
+                  key={op.id}
+                  className="bento-card p-4 flex-shrink-0 w-72 h-[380px] flex flex-col justify-between group"
+                  whileHover={{ y: -5 }}
+                >
+                  <div className="w-full h-52 bg-zinc-900 rounded-[1.5rem] border border-zinc-800 overflow-hidden relative flex items-center justify-center">
+                    <img
+                      src={op.images[0]}
+                      alt={op.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => e.currentTarget.style.display = 'none'}
+                      draggable={false}
+                    />
+                  </div>
+                  <div className="mt-4 px-2">
+                    <span className="text-[10px] text-blue-500 font-mono font-bold uppercase tracking-widest">{op.tech}</span>
+                    <h4 className="font-bold text-sm mt-1 uppercase italic">{op.title}</h4>
+                    <p className="text-[11px] text-zinc-500 mt-2 italic line-clamp-2">{op.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Indicateur de scroll */}
+          <p className="text-zinc-600 text-xs font-mono mt-4 text-center italic">
+            ← glisse pour voir plus →
+          </p>
         </section>
 
         {/* VEILLE TECH */}
