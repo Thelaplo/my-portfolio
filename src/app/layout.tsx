@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Théo Laplace | Portfolio Développeur",
   description: "Étudiant en BTS SIO SLAM - Développeur Fullstack spécialisé en C#, PHP et SQL.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
