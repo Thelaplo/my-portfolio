@@ -173,7 +173,8 @@ export default function Portfolio() {
     { id: 7, title: "Shrek's Maths Academy", tech: "C# • SQL SERVER", desc: "Développement du module de gestion de stock pour l'application Shrek.", images: ["/images/logoC.jpeg"] },
     { id: 8, title: "CSS ZEN GARDEN", tech: "CSS", desc: "Développement d'une maquette CSS pour le site Zen Garden.", images: ["/images/css.jpeg"] },
     { id: 9, title: "Site HTML Publicitaire", tech: "HTML • CSS", desc: "Développement d'une maquette HTML/CSS pour un site publicitaire.", images: ["/images/voiture.jpeg"] },
-    { id: 10, title: "Maintenance Jeux", tech: "C# • ALGORITHME• TEST", desc: "Reprise et optimisation de jeux classiques (Pendu, Mastermind) présentant des dysfonctionnements.", images: ["/images/logoC.jpeg"] }
+    { id: 10, title: "Maintenance Jeux", tech: "C# • ALGORITHME• TEST", desc: "Reprise et optimisation de jeux classiques (Pendu, Mastermind) présentant des dysfonctionnements.", images: ["/images/logoC.jpeg"] },
+    { id: 11, title: "BotVinted", tech: "PYTHON • PANDAS", desc: "Développement d'un bot pour recuperer les articles sur Vinted suivant une requête.", images: ["/images/vinted.jpeg"] }
   ];
 
   return (
@@ -650,7 +651,7 @@ export default function Portfolio() {
               {otherProjects.map((op) => (
                 <motion.div
                   key={op.id}
-                  className="bento-card p-4 flex-shrink-0 w-72 h-[380px] flex flex-col justify-between group"
+                  className="bento-card p-4 flex-shrink-0 w-80 h-[420px] flex flex-col justify-between group"
                   whileHover={{ y: -5 }}
                 >
                   <div className="w-full h-52 bg-zinc-900 rounded-[1.5rem] border border-zinc-800 overflow-hidden relative flex items-center justify-center">
@@ -665,7 +666,7 @@ export default function Portfolio() {
                   <div className="mt-4 px-2">
                     <span className="text-[10px] text-blue-500 font-mono font-bold uppercase tracking-widest">{op.tech}</span>
                     <h4 className="font-bold text-sm mt-1 uppercase italic">{op.title}</h4>
-                    <p className="text-[11px] text-zinc-500 mt-2 italic line-clamp-2">{op.desc}</p>
+                    <p className="text-[11px] text-zinc-500 mt-2 italic line-clamp-3">{op.desc}</p>
                   </div>
                 </motion.div>
               ))}
