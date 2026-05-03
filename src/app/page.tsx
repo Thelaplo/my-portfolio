@@ -128,7 +128,7 @@ export default function Portfolio() {
       ],
       github: "#",
       logo: "/images/sitejaponcap.png",
-      images: ["/images/sitejaponcap.png", "/images/BloomSpiritDetail.png", "/images/BloomSpiritAdmin.png"]
+      images: ["/images/sitejaponcap.png", "/images/BloomSpiritDetail.png", "/images/BloomSpiritAdmin.png","/images/trelo.png"]
     },
     {
       id: 3,
