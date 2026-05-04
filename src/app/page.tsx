@@ -339,7 +339,7 @@ export default function Portfolio() {
                 <a href="mailto:theolaplacepro2@gmail.com" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded-xl text-xs font-bold transition-all uppercase italic">
                   <Mail size={14} /> Me contacter
                 </a>
-                <a href="/images/CV2TheoLaplace.pdf" target="_blank" className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 px-6 py-3 rounded-xl text-xs font-bold transition-all uppercase italic">
+                <a href="/images/CV2TheoLaplace-Alternance.pdf" target="_blank" className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 px-6 py-3 rounded-xl text-xs font-bold transition-all uppercase italic">
                   <FileText size={14} /> Mon CV
                 </a>
               </div>
