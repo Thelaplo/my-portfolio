@@ -191,7 +191,14 @@ export default function Portfolio() {
     { id: 8, title: "CSS ZEN GARDEN", tech: "CSS", desc: "Développement d'une maquette CSS pour le site Zen Garden.", images: ["/images/css.jpeg"] },
     { id: 9, title: "Site HTML Publicitaire", tech: "HTML • CSS", desc: "Développement d'une maquette HTML/CSS pour un site publicitaire.", images: ["/images/voiture.jpeg"] },
     { id: 10, title: "Maintenance Jeux", tech: "C# • ALGORITHME• TEST", desc: "Reprise et optimisation de jeux classiques (Pendu, Mastermind) présentant des dysfonctionnements.", images: ["/images/logoC.jpeg"] },
-    { id: 11, title: "BotVinted", tech: "PYTHON • PANDAS", desc: "Développement d'un bot pour recuperer les articles sur Vinted suivant une requête.", images: ["/images/vinted.jpeg"] }
+    { id: 11, title: "BotVinted", tech: "PYTHON • PANDAS", desc: "Développement d'un bot pour recuperer les articles sur Vinted suivant une requête.", images: ["/images/vinted.jpeg"] },
+    {
+      id: 12, // Ou l'ID suivant dans ta liste
+      title: "PORTFOLIO PROFESSIONNEL (BTS SIO)",
+      tech: "NEXT.JS 14 • TYPESCRIPT • TAILWIND CSS • VERCEL",
+      desc: " De la Conception au déploiement afin de centraliser mes projets, mes compétences et ma veille technologique.",
+      images: ["/images/apple-touch-icon.png"]
+    },
   ];
 
   return (
