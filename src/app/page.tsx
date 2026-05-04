@@ -69,6 +69,18 @@ export default function Portfolio() {
         "Travail en équipe selon les normes de codage pro",
       ],
     },
+    {
+      title: "Stage en Réseaux et Systèmes",
+      company: "28e Régiment de Transmissions",
+      location: "Issoire",
+      date: "Juin 2023 → Juillet 2023",
+      color: "cyan",
+      tasks: [
+        "Participation aux activités militaires de l'unité",
+        "Mise en oeuvre de solutions de communication sécurisées (Packet Tracer)",
+        "Pratique des systèmes Windows Server",
+      ],
+    }
   ];
 
   useEffect(() => {
@@ -446,33 +458,42 @@ export default function Portfolio() {
                   transition={{ delay: index * 0.15 }}
                   className="relative grid grid-cols-1 md:grid-cols-2 gap-6"
                 >
+                  {/* Point central de la timeline */}
                   <div className={`absolute left-1/2 -translate-x-1/2 top-8 w-4 h-4 rounded-full border-2 hidden md:block z-10 ${
-                    exp.color === "blue" ? "bg-blue-500 border-blue-300" : "bg-purple-500 border-purple-300"
+                    exp.color === "blue" ? "bg-blue-500 border-blue-300" : 
+                    exp.color === "purple" ? "bg-purple-500 border-purple-300" : 
+                    "bg-cyan-500 border-cyan-300"
                   }`} />
 
                   <div className={index % 2 === 0 ? "md:pr-12" : "md:col-start-2 md:pl-12"}>
                     <div className={`bento-card p-6 border ${
-                      exp.color === "blue" ? "border-blue-500/30 bg-blue-500/5" : "border-purple-500/30 bg-purple-500/5"
+                      exp.color === "blue" ? "border-blue-500/30 bg-blue-500/5" : 
+                      exp.color === "purple" ? "border-purple-500/30 bg-purple-500/5" : 
+                      "border-cyan-500/30 bg-cyan-500/5"
                     }`}>
                       <div className="flex flex-wrap justify-between items-start mb-4 gap-2">
                         <div>
                           <h3 className={`font-bold uppercase italic text-lg ${
-                            exp.color === "blue" ? "text-blue-400" : "text-purple-400"
+                            exp.color === "blue" ? "text-blue-400" : 
+                            exp.color === "purple" ? "text-purple-400" : 
+                            "text-cyan-400"
                           }`}>{exp.title}</h3>
                           <p className="text-zinc-400 text-sm font-bold mt-1">{exp.company}</p>
                           <p className="text-zinc-600 text-xs mt-0.5">{exp.location}</p>
                         </div>
                         <span className={`text-xs font-mono font-bold px-3 py-1 rounded-full border ${
-                          exp.color === "blue"
-                            ? "text-blue-400 border-blue-500/30 bg-blue-500/10"
-                            : "text-purple-400 border-purple-500/30 bg-purple-500/10"
+                          exp.color === "blue" ? "text-blue-400 border-blue-500/30 bg-blue-500/10" :
+                          exp.color === "purple" ? "text-purple-400 border-purple-500/30 bg-purple-500/10" :
+                          "text-cyan-400 border-cyan-500/30 bg-cyan-500/10"
                         }`}>{exp.date}</span>
                       </div>
                       <ul className="space-y-2">
                         {exp.tasks.map((task, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm text-zinc-400 italic">
                             <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                              exp.color === "blue" ? "bg-blue-500" : "bg-purple-500"
+                              exp.color === "blue" ? "bg-blue-500" : 
+                              exp.color === "purple" ? "bg-purple-500" : 
+                              "bg-cyan-500"
                             }`} />
                             {task}
                           </li>
@@ -480,8 +501,6 @@ export default function Portfolio() {
                       </ul>
                     </div>
                   </div>
-
-                  <div className={index % 2 === 0 ? "hidden md:block" : "hidden md:block md:col-start-1 md:row-start-1"} />
                 </motion.div>
               ))}
             </div>
