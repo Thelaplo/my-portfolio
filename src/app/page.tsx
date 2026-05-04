@@ -113,6 +113,23 @@ export default function Portfolio() {
 
   const projects = [
     {
+      id: 1,
+      title: "ADCPG 03 - Association Départementale des Chasseurs de Petit Gibier",
+      tech: "WORDPRESS • PHP • CSS3 • UI/UX",
+      contexte: "Stage de fin d'études : Création intégrale de la plateforme web de l'ADCPG Allier (03). L'objectif était de moderniser l'image de l'association et de centraliser les ressources pour les adhérents.",
+      objectifs: "Concevoir un portail dynamique regroupant les actualités départementales, une bibliothèque de documents officiels (statuts, bulletins) et un espace de soutien financier déductible des impôts.",
+      realisation: "- Création d'un thème enfant personnalisé sous WordPress avec intégration de templates PHP spécifiques.\n- Développement d'un système de navigation 'Responsive First' avec menu burger et header flottant optimisés pour mobile.\n- Mise en place d'une interface dynamique pour les actualités (Carrousel/Slider tactile sur smartphone).\n- Intégration d'un module de don interactif (individuel/entrepreneur) avec affichage conditionnel en JavaScript.\n- Déploiement et configuration de l'infrastructure sur hébergement distant via FTP (FileZilla).",
+      difficultes: "Adapter une architecture d'information dense (plus de 20 bulletins et documents PDF) sur petit écran tout en conservant une navigation fluide et un design épuré sans surcharger le temps de chargement.",
+      bilan: "Projet mené de la conception UI/UX au déploiement final. Gain d'autonomie sur la gestion des conflits CSS et la manipulation des hooks WordPress. Structure optimisée permettant une duplication rapide (environ 5-6h) pour d'autres départements.",
+      competences: [
+        { code: "B1.3", nom: "Développer la présence en ligne (Référencement et Déploiement)" },
+        { code: "B1.1", nom: "Gérer le patrimoine informatique (Hébergement et Maintenance)" },
+        { code: "B2.1", nom: "Concevoir une solution applicative (Architecture PHP/CSS)" }
+      ],
+      github: "https://adcpg03.free.nf/", 
+      images: ["/images/LOGO.pdf"] // Tu pourras aussi ajouter des captures d'écran de tes carrés d'accueil et du carrousel mobile !
+    },
+    {
       id: 2,
       title: "BLOOM SPIRIT",
       tech: "VUE.JS 3 • PHP 8 • MYSQL • API REST",
@@ -130,25 +147,25 @@ export default function Portfolio() {
       logo: "/images/sitejaponcap.png",
       images: ["/images/sitejaponcap.png", "/images/BloomSpiritDetail.png", "/images/BloomSpiritAdmin.png","/images/trelo.png"]
     },
+    // {
+    //   id: 3,
+    //   title: "TYCHE INFORMATIQUE (Stage 1ère année)",
+    //   tech: "C# • .NET • WINFORMS",
+    //   contexte: "Premier stage en immersion au sein d'une ESN (Entreprise de Services Numériques).",
+    //   objectifs: "Maintenance évolutive d'applications internes et développement de modules de gestion de données.",
+    //   realisation: "- Développement de fonctionnalités sur une application d'agenda\n- Requêtes SQL pour le module de gestion Occas'Auto\n- Rédaction de documentations techniques simples",
+    //   difficultes: "S'adapter aux outils de versioning et aux normes de codage d'une équipe de développement pro.",
+    //   bilan: "Découverte des méthodes de travail professionnelles et du travail collaboratif.",
+    //   competences: [
+    //     { code: "B1.2", nom: "Fournir un service informatique" },
+    //     { code: "B1.4", nom: "Travailler en mode projet" }
+    //   ],
+    //   github: "#",
+    //   logo: "/images/tyche.png",
+    //   images: ["/images/tyche.jpeg"]
+    // },
     {
       id: 3,
-      title: "TYCHE INFORMATIQUE (Stage 1ère année)",
-      tech: "C# • .NET • WINFORMS",
-      contexte: "Premier stage en immersion au sein d'une ESN (Entreprise de Services Numériques).",
-      objectifs: "Maintenance évolutive d'applications internes et développement de modules de gestion de données.",
-      realisation: "- Développement de fonctionnalités sur une application d'agenda\n- Requêtes SQL pour le module de gestion Occas'Auto\n- Rédaction de documentations techniques simples",
-      difficultes: "S'adapter aux outils de versioning et aux normes de codage d'une équipe de développement pro.",
-      bilan: "Découverte des méthodes de travail professionnelles et du travail collaboratif.",
-      competences: [
-        { code: "B1.2", nom: "Fournir un service informatique" },
-        { code: "B1.4", nom: "Travailler en mode projet" }
-      ],
-      github: "#",
-      logo: "/images/tyche.png",
-      images: ["/images/tyche.jpeg"]
-    },
-    {
-      id: 4,
       title: "L'ARCHIVE - GESTION VINTAGE",
       tech: "PHP 8 • MYSQL • DOMPDF • CHART.JS",
       contexte: "Projet personnel de professionnalisation : Création d'un outil de pilotage d'activité pour une micro-entreprise de revente de vêtements vintage.",
