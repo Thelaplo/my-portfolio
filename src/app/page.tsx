@@ -29,7 +29,7 @@ export default function Portfolio() {
     { name: "React / Next.js", level: 2, icon: "⚛️" },
     { name: "C# / .NET", level: 2, icon: "🔷" },
     { name: "MySQL / SQL", level: 4, icon: "🗄️" },
-    { name: "Réseaux / Cisco", level: 2, icon: "🌐" },
+    { name: "Réseaux / Cisco", level: 3, icon: "🌐" },
     { name: "Cybersécurité", level: 3, icon: "🛡️" },
   ];
 
