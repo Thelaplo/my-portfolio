@@ -134,9 +134,12 @@ export default function Portfolio() {
       difficultes: "Adapter une architecture d'information dense (plus de 20 bulletins et documents PDF) sur petit écran tout en conservant une navigation fluide et un design épuré sans surcharger le temps de chargement.",
       bilan: "Projet mené de la conception UI/UX au déploiement final. Gain d'autonomie sur la gestion des conflits CSS et la manipulation des hooks WordPress. Structure optimisée permettant une duplication rapide (environ 5-6h) pour d'autres départements.",
       competences: [
-        { code: "B1.3", nom: "Développer la présence en ligne (Référencement et Déploiement)" },
-        { code: "B1.1", nom: "Gérer le patrimoine informatique (Hébergement et Maintenance)" },
-        { code: "B2.1", nom: "Concevoir une solution applicative (Architecture PHP/CSS)" }
+        { code: "B1", nom: "Gérer le patrimoine Informatique" },
+        { code: "B2", nom: "Répondre aux incidents et aux demandes d'assistance et d'évolution" },
+        { code: "B3", nom: "Développer la présence en ligne de l'organisation" },
+        { code: "B4", nom: "Travailler en mode projet" },
+        { code: "B5", nom: "Mettre à disposition des utilisateurs un service informatique" },
+        { code: "B6", nom: "Organiser son développement professionnel" },
       ],
       github: "https://adcpg03.free.nf/", 
       images: ["/images/LOGO.pdf"] // Tu pourras aussi ajouter des captures d'écran de tes carrés d'accueil et du carrousel mobile !
@@ -151,9 +154,11 @@ export default function Portfolio() {
       difficultes: "Mettre en œuvre une communication sécurisée entre Vue.js et le backend PHP via des requêtes préparées PDO pour éviter les injections SQL.",
       bilan: "Maîtrise du cycle complet de développement : de la conception (MCD/MLD) à l'implémentation d'une architecture découplée (Fullstack).",
       competences: [
-        { code: "B2.1", nom: "Concevoir une solution applicative (Architecture MVC & API)" },
-        { code: "B1.3", nom: "Développer la présence en ligne (Interface Vue.js)" },
-        { code: "B2.3", nom: "Concevoir une base de données (MCD/MLD sous MySQL)" }
+        { code: "B1", nom: "Gérer le patrimoine Informatique" },
+        { code: "B3", nom: "Développer la présence en ligne de l'organisation" },
+        { code: "B4", nom: "Travailler en mode projet" },
+        { code: "B5", nom: "Mettre à disposition des utilisateurs un service informatique" },
+        { code: "B6", nom: "Organiser son développement professionnel" },
       ],
       github: "#",
       logo: "/images/sitejaponcap.png",
@@ -186,9 +191,11 @@ export default function Portfolio() {
       difficultes: "Assurer l'intégrité des données lors du transfert vers l'historique en sécurisant les transactions via des requêtes préparées PDO.",
       bilan: "Capacité à transformer un besoin métier réel (comptabilité et logistique) en une solution logicielle robuste facilitant les déclarations fiscales.",
       competences: [
-        { code: "B2.1", nom: "Concevoir une solution applicative (Logique métier & Fiscalité)" },
-        { code: "B2.3", nom: "Concevoir une base de données (Triggers & Archivage SQL)" },
-        { code: "B1.4", nom: "Travailler en mode projet (Analyse des besoins et KPI)" }
+        { code: "B2", nom: "Répondre aux incidents et aux demandes d'assistance et d'évolution" },
+        { code: "B3", nom: "Développer la présence en ligne de l'organisation" },
+        { code: "B4", nom: "Travailler en mode projet" },
+        { code: "B5", nom: "Mettre à disposition des utilisateurs un service informatique" },
+        { code: "B6", nom: "Organiser son développement professionnel" },
       ],
       github: "#",
       logo: "/images/vinted.jpeg",
