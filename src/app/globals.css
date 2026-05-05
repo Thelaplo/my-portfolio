@@ -41,3 +41,24 @@ body {
 .bento-card:hover {
   border-color: #a1a1aa; /* zinc-400 */
 }
+/* --- MODE HAUTE VISIBILITÉ (VIDÉOPROJECTEUR) --- */
+
+/* On cible tous les textes qui sont grisés d'habitude */
+.high-contrast .text-zinc-400,
+.high-contrast .text-zinc-500,
+.high-contrast .text-zinc-600,
+.high-contrast .text-zinc-300 {
+  color: #ffffff !important; /* Devient blanc pur */
+  text-shadow: 0px 0px 1px rgba(255,255,255,0.3); /* Légère lueur pour le projecteur */
+}
+
+/* On rend les bordures des cartes Bento beaucoup plus visibles */
+.high-contrast .bento-card {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* On force les icônes lucide-react à être plus claires si besoin */
+.high-contrast svg {
+  stroke-width: 2.5px; /* Traits plus épais */
+}

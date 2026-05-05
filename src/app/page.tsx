@@ -17,6 +17,7 @@ const GithubCalendarWrapper = dynamic(() => import('./GithubCalendarWrapper'), {
 });
 
 export default function Portfolio() {
+  const [highContrast, setHighContrast] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [news, setNews] = useState<any[]>([]);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -82,6 +83,15 @@ export default function Portfolio() {
       ],
     }
   ];
+  // Gestion de la classe CSS globale pour le mode contraste
+  useEffect(() => {
+    if (highContrast) {
+      document.documentElement.classList.add("high-contrast");
+    } else {
+      document.documentElement.classList.remove("high-contrast");
+    }
+  }, [highContrast]);
+
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -221,6 +231,7 @@ export default function Portfolio() {
   ];
 
   return (
+    
     <div className="min-h-screen bg-black text-white px-6 pt-24 pb-10 md:px-20 selection:bg-blue-500/30 font-sans">
       <StarBackground />
 
@@ -236,6 +247,21 @@ export default function Portfolio() {
             <a href="#experience" className="hover:text-white transition-colors">Expérience</a>
             <a href="#competences" className="hover:text-white transition-colors">Compétences</a>
             <a href="#projets" className="hover:text-white transition-colors">Projets</a>
+            
+            {/* BOUTON HAUTE VISIBILITÉ (Desktop) */}
+            <button
+              onClick={() => setHighContrast(!highContrast)}
+              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all text-[10px] font-bold uppercase italic ${
+                highContrast 
+                  ? "bg-cyan-500 text-black border-cyan-400" 
+                  : "border-zinc-800 text-zinc-500 hover:text-white hover:border-zinc-600"
+              }`}
+              title="Optimiser pour vidéoprojecteur"
+            >
+              <ShieldCheck size={14} />
+              {highContrast ? "Mode Normal" : "Visibilité"}
+            </button>
+
             <a href="#contact" className="bg-white text-black px-5 py-2 rounded-full font-medium text-xs hover:bg-zinc-200 transition-all">Contact</a>
           </div>
 
@@ -264,6 +290,16 @@ export default function Portfolio() {
               className="md:hidden overflow-hidden"
             >
               <div className="flex flex-col gap-1 pt-4 pb-2 max-w-7xl mx-auto">
+                {/* BOUTON HAUTE VISIBILITÉ (Mobile) */}
+                <button
+                  onClick={() => setHighContrast(!highContrast)}
+                  className="flex items-center gap-3 py-4 px-2 text-sm font-bold uppercase italic border-b border-zinc-800/50"
+                  style={{ color: highContrast ? '#22d3ee' : '#a1a1aa' }}
+                >
+                  <ShieldCheck size={18} />
+                  {highContrast ? "Désactiver Haute Visibilité" : "Activer Haute Visibilité"}
+                </button>
+
                 {[
                   { href: "#about", label: "À propos" },
                   { href: "#formation", label: "Formation" },
