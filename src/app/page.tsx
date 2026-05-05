@@ -152,7 +152,7 @@ export default function Portfolio() {
         { code: "B6", nom: "Organiser son développement professionnel" },
       ],
       github: "https://adcpg03.free.nf/", 
-      images: ["/images/LOGO.pdf"] // Tu pourras aussi ajouter des captures d'écran de tes carrés d'accueil et du carrousel mobile !
+      images: ["/images/LOGO.jpg"] // Tu pourras aussi ajouter des captures d'écran de tes carrés d'accueil et du carrousel mobile !
     },
     {
       id: 2,
