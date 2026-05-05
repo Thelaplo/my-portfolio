@@ -745,6 +745,55 @@ export default function Portfolio() {
             ))}
           </div>
         </section>
+        {/* SECTION POURSUITE D'ÉTUDES */}
+        <section id="poursuite" className="mb-24">
+          <div className="flex items-center gap-3 mb-12">
+            <div className="bg-cyan-600 p-2 rounded-lg text-white">
+              <GraduationCap size={24} />
+            </div>
+            <h2 className="text-3xl font-bold tracking-tighter text-zinc-400 uppercase italic">
+              Objectif 2026-2027
+            </h2>
+          </div>
+
+          <div className="bento-card p-10 border-cyan-500/20 bg-cyan-500/5 relative overflow-hidden group">
+            {/* Effet de brillance en fond */}
+            <div className="absolute -right-20 -top-20 w-64 h-64 bg-cyan-500/10 blur-[100px] rounded-full group-hover:bg-cyan-500/20 transition-all duration-700" />
+            
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-3xl font-bold italic text-cyan-400 uppercase tracking-tighter mb-4">
+                  Bachelor 3 : Développeur Web
+                </h3>
+                <p className="text-zinc-300 leading-relaxed italic mb-6">
+                  Après l'obtention de mon BTS SIO SLAM, je poursuivrai mon cursus en **Bachelor 3 Développement Web**. Cette spécialisation me permettra d'approfondir mes connaissances en architecture logicielle, en cybersécurité applicative et en gestion de projets agiles complexes.
+                </p>
+                <div className="flex items-center gap-4 text-xs font-mono font-bold uppercase text-cyan-300/70">
+                  <span className="px-3 py-1 border border-cyan-500/30 rounded-md bg-cyan-500/10">Architecture JS</span>
+                  <span className="px-3 py-1 border border-cyan-500/30 rounded-md bg-cyan-500/10">Fullstack Expert</span>
+                  <span className="px-3 py-1 border border-cyan-500/30 rounded-md bg-cyan-500/10">DevOps</span>
+                </div>
+              </div>
+              
+              <div className="bg-zinc-900/50 border border-zinc-800 p-6 rounded-2xl">
+                <h4 className="text-sm font-mono text-zinc-500 uppercase mb-4 font-bold">Compétences ciblées</h4>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3 text-sm text-zinc-400">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" /> Perfectionnement React / Next.js
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-zinc-400">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" /> Maîtrise des environnements Docker & CI/CD
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-zinc-400">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" /> Management d'équipes techniques
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        
 
         {/* CONTACT */}
         <section id="contact" className="mb-24 text-center">
