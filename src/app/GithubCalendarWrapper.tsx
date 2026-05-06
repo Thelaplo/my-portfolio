@@ -16,7 +16,7 @@ export default function GithubCalendarWrapper() {
   return (
     <div className="flex flex-col items-center w-full gap-4">
       <GitHubCalendar
-        username="thelaplo"
+        username="Thelaplo"
         blockSize={35}
         blockMargin={25}
         fontSize={14}

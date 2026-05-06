@@ -207,7 +207,7 @@ export default function Portfolio() {
         { code: "B5", nom: "Mettre à disposition des utilisateurs un service informatique" },
         { code: "B6", nom: "Organiser son développement professionnel" },
       ],
-      github: "#",
+      github: "https://archivevintedepreuve.gt.tc",
       logo: "/images/vinted.jpeg",
       images: ["/images/entrepriseAccueil.png", "/images/entrepriseStock.png", "/images/entrepriseCommandes.png", "/images/entrepriseKPI.png"]
     }
