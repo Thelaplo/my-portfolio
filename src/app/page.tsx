@@ -70,18 +70,18 @@ export default function Portfolio() {
         "Travail en équipe selon les normes de codage pro",
       ],
     },
-    {
-      title: "Stage en Réseaux et Systèmes",
-      company: "28e Régiment de Transmissions",
-      location: "Issoire",
-      date: "Juin 2023 → Juillet 2023",
-      color: "cyan",
-      tasks: [
-        "Participation aux activités militaires de l'unité",
-        "Mise en oeuvre de solutions de communication sécurisées (Packet Tracer)",
-        "Pratique des systèmes Windows Server",
-      ],
-    }
+    // {
+    //   title: "Stage en Réseaux et Systèmes",
+    //   company: "28e Régiment de Transmissions",
+    //   location: "Issoire",
+    //   date: "Juin 2023 → Juillet 2023",
+    //   color: "cyan",
+    //   tasks: [
+    //     "Participation aux activités militaires de l'unité",
+    //     "Mise en oeuvre de solutions de communication sécurisées (Packet Tracer)",
+    //     "Pratique des systèmes Windows Server",
+    //   ],
+    // }
   ];
   // Gestion de la classe CSS globale pour le mode contraste
   useEffect(() => {
