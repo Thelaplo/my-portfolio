@@ -372,24 +372,21 @@ export default function Portfolio() {
                   />
                 </h3>
                 <p className="text-blue-500 font-mono text-xs uppercase tracking-widest mt-1 font-bold">
-                  Étudiant BTS SIO SLAM • Fullstack Dev
+                  Étudiant Bac+3 • Fullstack Dev
                 </p>
               </div>
 
               <p className="text-zinc-400 leading-relaxed italic text-balance">
-                Passionné par le développement web, je conçois des applications modernes
-                de la conception UI jusqu'au déploiement. Actuellement en BTS SIO option SLAM,
-                je suis à la recherche d'une <span className="text-white font-bold">alternance pour 2026</span> afin
-                de mettre mes compétences au service d'une équipe ambitieuse.
+               Passionné par le développement web, je conçois des applications modernes de la conception UI jusqu'au déploiement. Actuellement en Bachelor Développeur Full-Stack (Bac+3), j'évolue en alternance chez XEFI au sein de l'équipe DailyApps
               </p>
 
               {/* INFOS RAPIDES */}
               <div className="flex flex-wrap gap-3">
                 <div className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-full text-xs text-zinc-300 font-bold italic">
-                  📍 Clermont-Ferrand
+                  📍 Lyon
                 </div>
                 <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-4 py-2 rounded-full text-xs text-emerald-400 font-bold italic">
-                  ✅ Disponible en alternance
+                  ✅ Indisponible en alternance, Disponible en Freelance.
                 </div>
                 <div className="flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 px-4 py-2 rounded-full text-xs text-blue-400 font-bold italic">
                   💻 Fullstack Dev
